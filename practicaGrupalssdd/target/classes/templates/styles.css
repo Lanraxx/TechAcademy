@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap%27');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+  height:550px;
+  background-image: url('https://www.grupoioe.es/wp-content/uploads/2019/10/informatica-2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x:center;
+  background-position-y:center;
+}
+
+tech {
+    font-size:90px;
+    color:white;
+    font-family:courier;
+    position:relative;
+    right:160px;
+    bottom:40px;
+}
+
+academy {
+    font-size:90px;
+    color:white;
+    font-family:courier;
+    position:relative;
+    right:80px;
+    bottom:65px;
+}
+
+slogan {
+    font-size:30px;
+    font-family:courier new;
+    color:white;
+    position:relative;
+    right:80px;
+    bottom:65px;
+}
+
+/*#office{
+    background: -webkit-linear-gradient(180deg, #1EDCC2, #1523C6);
+    background: linear-gradient(270deg, #1EDCC2, #1523C6);
+    background-size: 300% 100%;
+    background-position: 70% 50%;
+    color: #fff;
+}*/
+
+#office{
+    background: linear-gradient(to bottom left, #0291DF, 40%, #141A56);
+    color: #FFF;
+}
+
+#security{
+    background: linear-gradient(to bottom left, #3C71E3, 50%, #A937E7);
+    color: #FFF;
+}
+
+#programming{
+    background: linear-gradient(to bottom left, #54DA83, 50%, #B7FE56);
+    color: #FFF;
+}
+
+#navigation{
+    background: #000000;
+}
+
+#navbarDropdown{
+    color: #FFFFFF;
+    font-size: 20px;
+}
+
+#acercade{
+    color: #FFFFFF;
+    position: relative;
+    right: 40px;
+    font-size: 20px;
+}
+
+#cursos{
+    color: #FFFFFF;
+    position: relative;
+    right: 90px;
+    font-size: 20px;
+}
+
+hr {
+    width: 70%;
+    height: 8px;
+    background-color: black;
+    margin: 20px auto;
+}
