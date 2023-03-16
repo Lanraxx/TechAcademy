@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap%27');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+#navbarDropdown{
+    color: #FFFFFF;
+    font-size: 20px;
+}
+
+#acercade{
+    color: #FFFFFF;
+    position: relative;
+    right: 40px;
+    font-size: 20px;
+}
+
+#cursos{
+    color: #FFFFFF;
+    position: relative;
+    right: 90px;
+    font-size: 20px;
+}
+
+#navigation{
+    background: #000000;
+}
+
+header {
+  height:550px;
+  background-image: url('/images/listaCursos.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x:center;
+  background-position-y:center;
+}
+
+cursos {
+    font-size:90px;
+    color:white;
+    font-family:courier;
+    position:relative;
+    right:160px;
+    bottom:20px;
+}
+
+informatica {
+    font-size:90px;
+    color:white;
+    font-family:courier;
+    position:relative;
+    right:80px;
+    bottom:40px;
+}
