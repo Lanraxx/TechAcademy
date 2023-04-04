@@ -2,9 +2,9 @@ package practica.academia;
 
 public class Comentario {
     private String comment;
-    private Usuario autor;
+    private User autor;
 
-    public Comentario (String comment, Usuario autor) {
+    public Comentario (String comment, User autor) {
         this.autor = autor;
         this.comment = comment;
     }
