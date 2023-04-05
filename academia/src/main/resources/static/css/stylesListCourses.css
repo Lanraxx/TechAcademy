@@ -91,3 +91,7 @@ ul{                     /*Quitar los puntos de una lista*/
     display:flex;
     justify-content: space-between;
 }
+
+#trash{
+    height: 30px;
+}

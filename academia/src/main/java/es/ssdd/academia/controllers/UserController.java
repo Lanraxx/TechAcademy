@@ -6,6 +6,9 @@ import es.ssdd.academia.services.CourseService;
 import es.ssdd.academia.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
@@ -68,5 +71,17 @@ public class UserController {
         userService.createUser(u3);
         userService.createUser(u4);
         userService.createUser(u5);
+    }
+
+    @GetMapping("/users/")                          //users list
+    public String users(Model model) {
+        model.addAttribute("users", userService.getAll());
+        return "users";
+    }
+
+    @GetMapping("/users/{id}/delete/")                //delete one user
+    public String deleteUser(Model model, @PathVariable long id) {
+        userService.deleteUser(id);
+        return "redirect:/users/";
     }
 }

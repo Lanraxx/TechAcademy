@@ -1,0 +1,11 @@
+table,td {
+	border: 2px solid black;
+}
+
+table {
+    width: 100%;
+}
+
+#trash{
+    height: 30px;
+}

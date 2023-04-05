@@ -64,17 +64,24 @@ slogan {
     font-size: 20px;
 }
 
-#acercade{
+#aboutUs{
     color: #FFFFFF;
     position: relative;
     right: 40px;
     font-size: 20px;
 }
 
-#cursos{
+#courses{
     color: #FFFFFF;
     position: relative;
     right: 90px;
+    font-size: 20px;
+}
+
+#users{
+    color: #FFFFFF;
+    position: relative;
+    right: 10px;
     font-size: 20px;
 }
 

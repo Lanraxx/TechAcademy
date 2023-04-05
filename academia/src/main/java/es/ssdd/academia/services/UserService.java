@@ -41,4 +41,15 @@ public class UserService {
         }
         return userList;
     }
+
+    public User deleteUser(long id) {
+        for (Map.Entry<Long, User> entry : usersMap.entrySet()) {
+            User u = entry.getValue();
+            if (id == u.getId()){
+                usersMap.remove(id);
+                return u;
+            }
+        }
+        return null;
+    }
 }
