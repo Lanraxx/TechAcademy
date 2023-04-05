@@ -53,3 +53,41 @@ informatica {
     right:80px;
     bottom:40px;
 }
+
+footer {
+    background: black;
+    color:white;
+}
+
+ul{                     /*Quitar los puntos de una lista*/
+    list-style: none;
+}
+
+.subtitlesend {
+    font-size: 20px;
+}
+
+.pointsend {
+    font-size: 12px;
+}
+
+#image {
+    height:200px;
+}
+
+#buttonAdd {
+    position: relative;
+    left: 500px;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.8);
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.8);
+}
+
+.card-text {
+    display:flex;
+    justify-content: space-between;
+}
