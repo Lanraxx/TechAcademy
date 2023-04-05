@@ -90,7 +90,7 @@ footer {
     color:white;
 }
 
-ul{                     /*Quitar los puntos de una lista*/
+ul{                     /*Remove points from list*/
     list-style: none;
 }
 
