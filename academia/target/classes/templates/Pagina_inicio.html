@@ -1,274 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Tech Academy</title>
-  <link type="text/css" rel="stylesheet" href="/styles.css">
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-
+    <meta charset="UTF-8">
+    <title>Tech Academy</title>
+    <link type="text/css" rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-
     rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-
     cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-
     kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-md" id="navigation">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="/images/logo.png" alt="..." height="75">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <a class="navbar-brand" href="#">Tech Academy</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="/cursos" id="cursos" role="button">Cursos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#" id="acercade" role="button">Sobre nosotros</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-               aria-haspopup="true" aria-expanded="false">
-              Portal del Alumno
-            </a>
-            <div class="dropdown-menu dropdown-menu-end animate slideIn" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="inicio_sesion.html">Iniciar Sesión</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-        </ul>
-      </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        Click Me!
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-end animate slideIn" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="inicio_sesion.html">Iniciar Sesión</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
-  </nav>
+</nav>
 
-  <header class="py-5">
-      <div align="right">
-        <tech>TECH</tech>
-        <br>
-        <academy>ACADEMY</academy>
-        <br>
-        <slogan>Adaptate al nuevo mundo</slogan>
-      </div>
-  </header>
+<!-- Page Content -->
 
-  <br>
+<div class="container">
 
-  <hr>
+    <!-- Page Heading -->
+    <h1 class="my-4">Página principal
+        <small>Secondary Text</small>
+    </h1>
 
-  <br>
-
-  <div class=" container col-md-12 section-heading mt60">
-     <h1>CURSOS  <strong>ESPECIALIZADOS</strong></h1>
-     <!--<hr class="separator">-->
-     <p class="subheading">Encuentra el que más se adapte a tí</p>
-   </div>
-
-  <section class="container">
     <div class="row">
-      <div class="col-md-4">
-        <div class="box box-style4 text-center" id="office">
-          <a href="#"><i style="color: #fff;" class="ion-ios-bookmarks-outline size-4x"></i></a>
-          <h5>Office</h5>
-          <br>
-          <p>Descripcion general</p>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="box box-style6 text-center" id="security">
-          <a href="#"><i class="ion-android-walk size-4x"></i></a>
-          <h5>Seguridad informática</h5>
-          <p>Descripcion general<br><br></p>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="box box-style5 text-center" id="programming">
-          <a href="#"><i class="ion-android-desktop size-4x"></i></a>
-          <h5>Aprende a programar</h5>
-          <br>
-          <p>Cualquier lenguaje que desees y desde el nivel que quieras.</p>
-          <p>Comienza a programar!</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer id="footer">
-    <div class="container p-5">
-      <section>
-        <div class="row">
-          <div class="col-lg-3 col-md-6">
-            <img src="/images/logo.png" height="150">
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <ul>
-              <li class="subtitlesend">Contáctenos</li>
-              <li class="pointsend">Email: techacademy@gmail.com</li>
-              <li class="pointsend">Telefono: +34639528417</li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-md-6">     <!--col-md-6 es para verlo en teoria en movil--> <!--el 4 deja la separacion de columnas-->
-            <ul>
-              <li class="subtitlesend">Sobre la academia</li>
-              <li class="pointsend">Politica de privacidad</li>
-              <li class="pointsend">Politica de cookies</li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <ul>
-              <li class="subtitlesend">Redes sociales</li>
-              <li>
-                <div  class="row">
-                  <div class="col-lg-3 col-md-6">
-                    <img src="/images/instagram_2.png" height="50">
-                      <!--<li><a href="https://facebook.com/OfipolESP"><i class="icon ion-social-facebook"></i></a></li>-->
-                  </div>
-                  <div class="col-lg-3 col-md-6">
-                    <img src="/images/twitter_2.png" height="50">  <!--usar target_blank para que el enlace se abra en otra pestaña-->
-                  </div>
-                  <div class="col-lg-3 col-md-6">
-                    <img src="/images/facebook_2.png" height="40">
-                  </div>
+        <div class="col-lg-4 col-sm-6 mb-4">
+            <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="/imagenes/cursoJava.jpg" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="/curso/1">Java</a>
+                    </h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam
+                        aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt,
+                        dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
                 </div>
-              </li>
-            </ul>
-          </div>
+            </div>
         </div>
-
-      </section>
-
+        <div class="col-lg-4 col-sm-6 mb-4">
+            <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="https://via.placeholder.com/700x400" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="#">Project Two</a>
+                    </h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod
+                        odio, gravida pellentesque urna varius vitae.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 mb-4">
+            <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="https://via.placeholder.com/700x400" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="#">Project Three</a>
+                    </h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error
+                        quod sed cumque, odio distinctio velit nostrum temporibus necessitatibus et facere atque iure
+                        perspiciatis mollitia recusandae vero vel quam!</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 mb-4">
+            <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="https://via.placeholder.com/700x400" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="#">Project Four</a>
+                    </h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod
+                        odio, gravida pellentesque urna varius vitae.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 mb-4">
+            <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="https://via.placeholder.com/700x400" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="#">Project Five</a>
+                    </h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod
+                        odio, gravida pellentesque urna varius vitae.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 mb-4">
+            <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="https://via.placeholder.com/700x400" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="#">Project Six</a>
+                    </h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum
+                        suscipit ducimus nihil provident, perferendis rem illo, voluptate atque, sit eius in voluptates,
+                        nemo repellat fugiat excepturi! Nemo, esse.</p>
+                </div>
+            </div>
+        </div>
     </div>
-  </footer>
+    <!-- /.row -->
 
-  <!--<div class="elementor-widget-container">
-					<div class="elementor-social-icons-wrapper elementor-grid">
-							<span class="elementor-grid-item">
-					<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook-f elementor-animation-float elementor-repeater-item-d0970ad" href="https://www.facebook.com/iescalderondelabarca" target="_blank" rel="nofollow">
-						<span class="elementor-screen-only">Facebook-f</span>
-						<i class="fab fa-facebook-f"></i>					</a>
-				</span>
-							<span class="elementor-grid-item">
-					<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-animation-float elementor-repeater-item-544dfe4" href="https://www.instagram.com/ies.calderon.pinto/" target="_blank" rel="nofollow">
-						<span class="elementor-screen-only">Instagram</span>
-						<i class="fab fa-instagram"></i>					</a>
-				</span>
-							<span class="elementor-grid-item">
-					<a class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-animation-float elementor-repeater-item-6d9a828" href="https://twitter.com/iescalderon" target="_blank">
-						<span class="elementor-screen-only">Twitter</span>
-						<i class="fab fa-twitter"></i>					</a>
-				</span>
-							<span class="elementor-grid-item">
-					<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-animation-float elementor-repeater-item-3859b53" href="https://www.linkedin.com/company/iescalderon/" target="_blank" rel="nofollow">
-						<span class="elementor-screen-only">Linkedin</span>
-						<i class="fab fa-linkedin"></i>					</a>
-				</span>
-					</div>
-				</div>-->
+    <!-- Pagination -->
+    <ul class="pagination justify-content-center">
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">3</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+            </a>
+        </li>
+    </ul>
 
-  <!--<footer id="footer" class="site-footer js-footer" role="contentinfo">
-    <div class="site-footer--container">
-        <div class="site-footer--col">
-          <h5 class="-title"><a href="/">Sobre la academia</a></h5>
-          <ul class="-list js-primary-footer-links">
-            <li><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 2 })" href="/tour">Recorrido</a></li>
-            <li><a href="/help" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 3 })">Ayuda</a></li>
-            <li><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 5 })" href="https://chat.stackexchange.com?tab=site&amp;host=es.stackoverflow.com">Chat</a></li>
-            <li><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 13 })" href="/contact">Contacto</a></li>
-            <li><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 14 })" href="https://es.meta.stackoverflow.com">Comentarios</a></li>
-          </ul>
-        </div>
-        <div class="site-footer--col">
-          <h5 class="-title"><a class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.co/">Empresa</a></h5>
-          <ul class="-list">
-            <li><a href="https://stackoverflow.com" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 15})">Stack Overflow</a></li>
-            <li><a href="https://stackoverflow.co/teams" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 29 })">Teams</a></li>
-            <li><a href="https://stackoverflow.co/advertising" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 21 })">Advertising</a></li>
-            <li><a href="https://stackoverflow.co/collectives" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 40 })">Collectives</a></li>
-            <li><a href="https://stackoverflow.co/talent" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 20 })">Talent</a></li>
-            <li><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.co/">Acerca de</a></li>
-            <li><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 27 })" href="https://stackoverflow.co/company/press">Prensa</a></li>
-            <li><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 7 })" href="https://stackoverflow.com/legal">Legal</a></li>
-            <li><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 8 })" href="https://stackoverflow.com/legal/privacy-policy">Política de privacidad</a></li>
-            <li><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 37 })" href="https://stackoverflow.com/legal/terms-of-service">Términos de Servicio</a></li>
-            <li class="" id="consent-footer-link"><a class="js-gps-track -link js-cookie-settings" data-gps-track="footer.click({ location: 2, link: 38 })" href="#" data-consent-popup-loader="footer">Configuración de las cookies</a></li>
-            <li><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 39 })" href="https://stackoverflow.com/legal/cookie-policy">Política de las cookies</a></li>
-          </ul>
-        </div>
-        <div class="site-footer--col site-footer--categories-nav">
-          <div>
-            <h5 class="-title"><a href="https://stackexchange.com" data-gps-track="footer.click({ location: 2, link: 30 })">Red Stack Exchange</a></h5>
-            <ul class="-list">
-              <li>
-                <a href="https://stackexchange.com/sites#technology" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })">
-                  Tecnología
-                </a>
-              </li>
-              <li>
-                <a href="https://stackexchange.com/sites#culturerecreation" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })">
-                  Cultura y recreación
-                </a>
-              </li>
-              <li>
-                <a href="https://stackexchange.com/sites#lifearts" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })">
-                  Vida y arte
-                </a>
-              </li>
-              <li>
-                <a href="https://stackexchange.com/sites#science" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })">
-                  Ciencia
-                </a>
-              </li>
-              <li>
-                <a href="https://stackexchange.com/sites#professional" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })">
-                  Profesional
-                </a>
-              </li>
-              <li>
-                <a href="https://stackexchange.com/sites#business" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })">
-                  Negocios
-                </a>
-              </li>
-
-              <li class="mt16 md:mt0">
-                <a href="https://api.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })">
-                  API
-                </a>
-              </li>
-
-              <li>
-                <a href="https://data.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })">
-                  Data
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <div class="site-footer--copyright fs-fine md:mt24">
-        <ul class="-list -social md:mb8">
-          <li><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link:4 })" href="https://stackoverflow.blog?blb=1">Blog</a></li>
-          <li><a href="https://www.facebook.com/officialstackoverflow/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 31 })">Facebook</a></li>
-          <li><a href="https://twitter.com/stackoverflow" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 32 })">Twitter</a></li>
-          <li><a href="https://linkedin.com/company/stack-overflow" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 33 })">LinkedIn</a></li>
-          <li><a href="https://www.instagram.com/thestackoverflow" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 36 })">Instagram</a></li>
-        </ul>
-
-        <p class="md:mb0">
-          Site design / logo © 2023 Stack Exchange Inc; user contributions licensed under <span class="td-underline"><a href="https://stackoverflow.com/help/licensing">CC BY-SA</a></span>.                    <span id="svnrev">rev&nbsp;2023.3.13.43309</span>
-        </p>
-      </div>
-    </div>
-
-  </footer>-->
+</div>
+<!-- /.container -->
 
 </body>
 </html>
