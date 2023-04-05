@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap%27');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+#acercade{
+    color: #FFFFFF;
+    position: relative;
+    right: 40px;
+    font-size: 20px;
+}
+
+#cursos{
+    color: #FFFFFF;
+    position: relative;
+    right: 90px;
+    font-size: 20px;
+}
+
+#navigation{
+    background: #000000;
+}
+
+footer {
+    background: black;
+    color:white;
+}
+
+ul{                     /*Quitar los puntos de una lista*/
+    list-style: none;
+}
+
+.subtitlesend {
+    font-size: 20px;
+}
+
+.pointsend {
+    font-size: 12px;
+}
+
+body {
+    background: linear-gradient(to bottom left, #3C71E3, 50%, #A937E7);
+}
