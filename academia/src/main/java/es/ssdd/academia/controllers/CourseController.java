@@ -27,16 +27,20 @@ public class CourseController {
 
     @PostConstruct
     public void CourseController () {
+        //Create users
         User u1 = new User("Pepe", "pepejaun@gmail.com", "xxxxx");
         User u2 = new User("Pepa", "junjwenc@yahoo.es", "12234");
         ArrayList<User> list = new ArrayList<User>();
         list.add(u1);
         list.add(u2);
+
+        //Create courses
         Course course1 = new Course("CURSO PREDEFINIDO", "GRATUITO", 1, "bueno", list, "https://www.oracle.com/oce/press/assets/CONT2F6AE229113D42EC9C59FAED5BAA0380/native/og-social-java-logo.gif");
         Course course2 = new Course("C2", "30", 4, "bueno", list, "/images/twitter_2.png");
         courseService.createCourse(course1);
         courseService.createCourse(course2);
 
+        //Create forum
         Forum forum1 = new Forum(course1.getId());
         forumService.createForum(forum1);
         course1.setFk_forum(forum1.getId());
@@ -51,12 +55,12 @@ public class CourseController {
         model.addAttribute("courses", courseService.getAll());
         return "listCourses";
     }
-    @GetMapping("/addCourse/")                      //Mostrar formulario añadir curso
+    @GetMapping("/addCourse/")                      //Show form of add course
     public String addCourse(Model model) {
         model.addAttribute("title", "FORMULARIO NUEVO CURSO");
         return "newCourse";
     }
-    @PostMapping("/courses/")                  //Guardar un curso
+    @PostMapping("/courses/")                  //Save course
     public String createCourse(Model model, @RequestParam String title, @RequestParam String price,
                                @RequestParam String description, @RequestParam int duration, @RequestParam String image) {
         courseService.createCourse(new Course(title, price, duration, description, null, image));
@@ -79,7 +83,7 @@ public class CourseController {
         return "updateCourse";
     }
 
-    @PostMapping("/courses/{id}/edit/")                  //Guardar un curso modificado
+    @PostMapping("/courses/{id}/edit/")                  //Save modify course
     public String updateCourse(Model model, @PathVariable long id, @RequestParam String title, @RequestParam String price,
                                 @RequestParam String description, @RequestParam int duration, @RequestParam String image) {
 
@@ -88,8 +92,8 @@ public class CourseController {
         return "redirect:/courses/{id}/";
     }
 
-    @GetMapping("/courses/{id}/delete/")            //Borrar curso
-    public String deleteCourse(Model model, @PathVariable int id) {
+    @GetMapping("/courses/{id}/delete/")            //Delete course
+    public String deleteCourse(Model model, @PathVariable long id) {
         courseService.deleteCourse(id);
         return "redirect:/courses/";
     }
