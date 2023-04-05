@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap%27');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+#background {
+    background: linear-gradient(to bottom left, #3C71E3, 30%, #A937E7);
+}
+#navigation{
+    background: #000000;
+}
+#navbarDropdown{
+    color: #FFFFFF;
+    font-size: 20px;
+}
+.pageContainer {
+    width: 1080px;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    background: linear-gradient(to bottom left, #6990E4, 50%, #BB69E8);
+    padding: 20px 15px 50px 50px;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px 0px rgba(0, 0, 0, 0.8);
+}
+#descripcion {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    padding: 5px;
+    color: black;
+}
+#detalles {
+    padding: 5px;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.8);
+}
+#detalles li {
+    margin-left: 10px;
+}
+#about {
+    padding: 5px;
+    margin-left: 20px;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.8);
+}
+#listaAlumnos {
+    padding: 5px;
+    margin-top: 35px;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.8);
+}
+#commentBox {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.8);
+}
+#comment {
+    padding: 5px;
+    margin-right: 10px;
+}
+.deleteComment {
+    margin-top: 20px;
+}
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 35px;
+    margin-right: 40px;
+}
+.buttons .edit {
+    margin-right: 30px;
+}
+footer {
+    background-color: black;
+    color: white;
+}
+ul{
+    list-style: none;
+}
+.subtitlesend {
+    font-size: 20px;
+}
+.pointsend {
+    font-size: 12px;
+}
