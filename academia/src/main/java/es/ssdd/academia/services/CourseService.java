@@ -44,7 +44,7 @@ public class CourseService {
         course.setPrice(newCourse.getPrice());
         course.setDuration(newCourse.getDuration());
         course.setDescription(newCourse.getDescription());
-        course.setUrlFoto(newCourse.getUrlFoto());
+        course.setUrlImage(newCourse.getUrlImage());
 
         mapCourses.put(id, course);
         return newCourse;
