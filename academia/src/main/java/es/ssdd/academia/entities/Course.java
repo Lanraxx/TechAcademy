@@ -20,15 +20,15 @@ public class Course {
     private int duration;
     private String description;
     private List<User> userList = new ArrayList<>();
-    public String urlFoto;
+    public String urlImage;
 
 
-    public Course(String title, String price, int duration, String description, String urlFoto) {
+    public Course(String title, String price, int duration, String description, String urlImage) {
         this.title = title;
         this.price = price;
         this.duration = duration;
         this.description = description;
-        this.urlFoto = urlFoto;
+        this.urlImage = urlImage;
     }
 
 }
