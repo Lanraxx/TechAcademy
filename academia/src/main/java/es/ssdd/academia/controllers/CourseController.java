@@ -52,6 +52,7 @@ public class CourseController {
         courseService.createCourse(course1);
         courseService.createCourse(course2);
 
+        //Create forum
         Forum forum1 = new Forum(course1.getId());
         forumService.createForum(forum1);
         course1.setFk_forum(forum1.getId());
@@ -66,12 +67,12 @@ public class CourseController {
         model.addAttribute("courses", courseService.getAll());
         return "listCourses";
     }
-    @GetMapping("/addCourse/")                      //Mostrar formulario añadir curso
+    @GetMapping("/addCourse/")                      //Show form of add course
     public String addCourse(Model model) {
         model.addAttribute("title", "FORMULARIO NUEVO CURSO");
         return "newCourse";
     }
-    @PostMapping("/courses/")                  //Guardar un curso
+    @PostMapping("/courses/")                  //Save course
     public String createCourse(Model model, @RequestParam String title, @RequestParam String price,
                                @RequestParam String description, @RequestParam int duration, @RequestParam String image) {
         courseService.createCourse(new Course(title, price, duration, description, image));
@@ -94,7 +95,7 @@ public class CourseController {
         return "updateCourse";
     }
 
-    @PostMapping("/courses/{id}/edit/")                  //Guardar un curso modificado
+    @PostMapping("/courses/{id}/edit/")                  //Save modify course
     public String updateCourse(Model model, @PathVariable long id, @RequestParam String title, @RequestParam String price,
                                 @RequestParam String description, @RequestParam int duration, @RequestParam String image) {
 
@@ -103,7 +104,7 @@ public class CourseController {
         return "redirect:/courses/{id}/";
     }
 
-    @GetMapping("/courses/{id}/delete/")            //Borrar curso
+    @GetMapping("/courses/{id}/delete/")            //Delete course
     public String deleteCourse(Model model, @PathVariable int id) {
         courseService.deleteCourse(id);
         return "redirect:/courses/";
