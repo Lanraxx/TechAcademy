@@ -29,6 +29,10 @@
     padding: 5px;
     color: black;
 }
+#image {
+    margin: auto;
+    padding: 20px;
+}
 #detalles {
     padding: 5px;
     align-items: center;
@@ -57,6 +61,7 @@
     grid-template-columns: 80% 20%;
     border-radius: 10px;
     box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.8);
+    margin-bottom: 20px;
 }
 #comment {
     padding: 5px;
@@ -87,7 +92,6 @@ ul{
 .pointsend {
     font-size: 12px;
 }
-
 .bodyPopUp {
     background-color: pink;
     display:flex;

@@ -8,14 +8,13 @@ import es.ssdd.academia.services.CourseService;
 import es.ssdd.academia.services.ForumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 
 @Controller
+@RequestMapping("/courses")
 public class CommentController {
     @Autowired
     CommentService commentService;
@@ -34,16 +33,23 @@ public class CommentController {
         commentService.createComment(comment2);
     }
 
-    @GetMapping("/courses/{id}/addComment/")
+    @GetMapping("/{id}/addComment/")
     public String addComment(@PathVariable long id) {
         return "newComment";
     }
 
-    @PostMapping("/courses/{id}/addComment/")
-    public String addComment(@PathVariable long id, @RequestParam Comment comment) {
+    @PostMapping("/{id}/addComment/")
+    public String addComment(@PathVariable long id, @RequestParam String newComment) {
         Course c = courseService.getOne(id);
+        Comment comment = new Comment(newComment, new User("Admin", "admin@gmail.com", "adminadminadmin"));
         comment.setFk_forum(c.getFk_forum());
         commentService.createComment(comment);
+        return "redirect:/courses/{id}/";
+    }
+
+    @GetMapping("/{id}/deleteComment/{idC}")    //Delete comment
+    public String deleteComment(@PathVariable int id, @PathVariable long idC) {
+        commentService.deleteComment(idC);
         return "redirect:/courses/{id}/";
     }
 

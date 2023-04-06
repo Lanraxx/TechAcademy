@@ -2,7 +2,6 @@ package es.ssdd.academia.services;
 
 import es.ssdd.academia.entities.Comment;
 import es.ssdd.academia.entities.Course;
-import es.ssdd.academia.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,5 +26,19 @@ public class CommentService {
     public Collection<Comment> getAll() {
         return mapComments.values();
     }
+    public Comment getOne(long id) {
+        return mapComments.get(id);
+    }
     public Map<Long, Comment> getMap() {return mapComments;}
+
+    public Comment deleteComment(long id) {
+        for (Map.Entry<Long, Comment> entry : mapComments.entrySet()) {
+            Comment c = entry.getValue();
+            if (id == c.getId()){
+                mapComments.remove(id);
+                return c;
+            }
+        }
+        return null;
+    }
 }
