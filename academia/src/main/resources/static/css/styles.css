@@ -55,56 +55,9 @@ slogan {
     color: #FFF;
 }
 
-#navigation{
-    background: #000000;
-}
-
-#navbarDropdown{
-    color: #FFFFFF;
-    font-size: 20px;
-}
-
-#aboutUs{
-    color: #FFFFFF;
-    position: relative;
-    right: 40px;
-    font-size: 20px;
-}
-
-#courses{
-    color: #FFFFFF;
-    position: relative;
-    right: 90px;
-    font-size: 20px;
-}
-
-#users{
-    color: #FFFFFF;
-    position: relative;
-    right: 10px;
-    font-size: 20px;
-}
-
 hr {
     max-width: 70%;
     height: 8px;
     background-color: black;
     margin: 20px auto;
-}
-
-footer {
-    background: black;
-    color:white;
-}
-
-ul{                     /*Remove points from list*/
-    list-style: none;
-}
-
-.subtitlesend {
-    font-size: 20px;
-}
-
-.pointsend {
-    font-size: 12px;
 }

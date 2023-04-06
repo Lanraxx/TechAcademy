@@ -4,29 +4,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-#navbarDropdown{
-    color: #FFFFFF;
-    font-size: 20px;
-}
-
-#acercade{
-    color: #FFFFFF;
-    position: relative;
-    right: 40px;
-    font-size: 20px;
-}
-
-#cursos{
-    color: #FFFFFF;
-    position: relative;
-    right: 90px;
-    font-size: 20px;
-}
-
-#navigation{
-    background: #000000;
-}
-
 header {
   height:550px;
   background-image: url('/images/listaCursos.png');
@@ -52,23 +29,6 @@ informatica {
     position:relative;
     right:80px;
     bottom:40px;
-}
-
-footer {
-    background: black;
-    color:white;
-}
-
-ul{                     /*Quitar los puntos de una lista*/
-    list-style: none;
-}
-
-.subtitlesend {
-    font-size: 20px;
-}
-
-.pointsend {
-    font-size: 12px;
 }
 
 #image {

@@ -6,13 +6,7 @@
 #background {
     background: linear-gradient(to bottom left, #3C71E3, 30%, #A937E7);
 }
-#navigation{
-    background: #000000;
-}
-#navbarDropdown{
-    color: #FFFFFF;
-    font-size: 20px;
-}
+
 .pageContainer {
     width: 1080px;
     margin: auto;
@@ -79,19 +73,7 @@
 .buttons .edit {
     margin-right: 30px;
 }
-footer {
-    background-color: black;
-    color: white;
-}
-ul{
-    list-style: none;
-}
-.subtitlesend {
-    font-size: 20px;
-}
-.pointsend {
-    font-size: 12px;
-}
+
 .bodyPopUp {
     background-color: pink;
     display:flex;
