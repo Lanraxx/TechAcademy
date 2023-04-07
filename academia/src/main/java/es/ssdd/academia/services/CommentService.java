@@ -13,6 +13,8 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @Service
 public class CommentService {
+    @Autowired
+    UserService userService;
 
     private Map<Long, Comment> mapComments = new ConcurrentHashMap<>();
     private AtomicLong id = new AtomicLong();

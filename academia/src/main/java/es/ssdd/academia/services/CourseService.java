@@ -3,7 +3,6 @@ package es.ssdd.academia.services;
 import es.ssdd.academia.entities.Course;
 import es.ssdd.academia.entities.Forum;
 import es.ssdd.academia.entities.User;
-import es.ssdd.academia.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +12,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @Service
 public class CourseService {
+
     @Autowired
     UserService userService;
     @Autowired
@@ -24,6 +24,7 @@ public class CourseService {
     public Collection<Course> getAll() {
         return mapCourses.values();
     }
+
     public Course createCourse(Course course){
         long tem = id.incrementAndGet();
         course.setId(tem);
@@ -33,7 +34,8 @@ public class CourseService {
         course.setFk_forum(forum.getId());
         return course;
     }
-    public Course getOne (long id) {
+
+    public Course getOne(long id) {
         return mapCourses.get(id);
     }
 
@@ -59,5 +61,24 @@ public class CourseService {
             }
         }
         return null;
+    }
+
+    public void deleteUser(long id) {
+        for (Map.Entry<Long, Course> entry : mapCourses.entrySet()) {
+            Course c = entry.getValue();
+            List<User> users = c.getUserList();
+            Iterator<User> iterator = users.iterator();
+            while (iterator.hasNext()) {
+                User u = iterator.next();
+                if (u.getId() == id) {
+                    iterator.remove();
+                }
+            }
+            /*for (User u : users) {
+                if (u.getId() == id) {
+                    c.getUserList().remove(u);
+                }
+            }*/
+        }
     }
 }

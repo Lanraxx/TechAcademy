@@ -23,20 +23,21 @@ public class UserController {
 
     @PostConstruct
     public void UserController () {
-
         List<User> course1List = courseService.getOne(1).getUserList();
         List<User> course2List = courseService.getOne(2).getUserList();
 
         User u1 = new User("Nico", "nrodriguezu@gmail.com", "xxxxx");
         User u2 = new User("Marta", "mmrtta@yahoo.es", "1234");
-        User u3 = new User("Álvaro", "alpasc8@gmail.com", "2905");
+        User u3 = new User("Alvaro", "alpasc8@gmail.com", "2905");
         User u4 = new User("Jiajie", "djjj@yahoo.es", "jiajie");
         User u5 = new User("Gonzalo", "gonzarico@gamil.com", "9090");
 
+        //Add users to course1
         course1List.add(u1);
         course1List.add(u2);
         course1List.add(u3);
 
+        //Add users to course2
         course2List.add(u4);
         course2List.add(u5);
         course2List.add(u1);
@@ -48,6 +49,7 @@ public class UserController {
         List<Course> enrolledCoursesUser4 = new ArrayList<>();
         List<Course> enrolledCoursesUser5 = new ArrayList<>();
 
+        //Add to each user the courses in which they are enrolled
         enrolledCoursesUser1.add(courseService.getOne(1));
         enrolledCoursesUser1.add(courseService.getOne(2));
 
@@ -66,6 +68,7 @@ public class UserController {
         u4.setEnrolledCourses(enrolledCoursesUser4);
         u5.setEnrolledCourses(enrolledCoursesUser5);
 
+        //Add users to map
         userService.createUser(u1);
         userService.createUser(u2);
         userService.createUser(u3);
@@ -81,6 +84,7 @@ public class UserController {
 
     @GetMapping("/users/{id}/delete/")                //delete one user
     public String deleteUser(Model model, @PathVariable long id) {
+        courseService.deleteUser(id);
         userService.deleteUser(id);
         return "redirect:/users/";
     }

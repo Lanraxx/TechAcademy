@@ -2,7 +2,6 @@ package es.ssdd.academia.services;
 
 import es.ssdd.academia.entities.Course;
 import es.ssdd.academia.entities.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,9 +13,9 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @Service
 public class UserService {
-
     private Map<Long, User> usersMap = new ConcurrentHashMap<>();
     private AtomicLong id = new AtomicLong();
+
 
     public User createUser(User user){
         long tem = id.incrementAndGet();
@@ -52,4 +51,5 @@ public class UserService {
         }
         return null;
     }
+
 }
