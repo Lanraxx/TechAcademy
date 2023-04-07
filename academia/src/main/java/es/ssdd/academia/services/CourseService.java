@@ -14,8 +14,6 @@ import java.util.concurrent.atomic.AtomicLong;
 @Service
 public class CourseService {
     @Autowired
-    UserService userService;
-    @Autowired
     ForumService forumService;
 
     private Map<Long, Course> mapCourses = new ConcurrentHashMap<>();

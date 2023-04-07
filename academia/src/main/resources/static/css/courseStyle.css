@@ -61,9 +61,11 @@
     padding: 5px;
     margin-right: 10px;
 }
+/*
 .deleteComment {
     margin-top: 20px;
 }
+*/
 .buttons {
     display: flex;
     justify-content: flex-end;

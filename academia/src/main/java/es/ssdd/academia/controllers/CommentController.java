@@ -47,10 +47,26 @@ public class CommentController {
         return "redirect:/courses/{id}/";
     }
 
-    @GetMapping("/{id}/deleteComment/{idC}")    //Delete comment
+    @GetMapping("/{id}/editComment/{idC}/")
+    public String editComment(Model model, @PathVariable long id, @PathVariable long idC) {
+        model.addAttribute("course", courseService.getOne(id));
+        model.addAttribute("comment", commentService.getOne(idC));
+        return "updateComment";
+    }
+
+    @PostMapping("/{id}/editComment/{idC}/")
+    public String editComment(@PathVariable long id, @PathVariable long idC, @RequestParam String newComment) {
+        Comment com = commentService.getOne(idC);
+        com.setComment(newComment);
+        commentService.modifyComment(idC, com);
+        return "redirect:/courses/{id}/";
+    }
+
+    @GetMapping("/{id}/deleteComment/{idC}/")    //Delete comment
     public String deleteComment(@PathVariable int id, @PathVariable long idC) {
         commentService.deleteComment(idC);
         return "redirect:/courses/{id}/";
     }
+
 
 }

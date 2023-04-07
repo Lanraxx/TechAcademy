@@ -46,13 +46,14 @@ public class CourseController {
         Course course2 = new Course("C2", "30", 4, "bueno",
                 "/images/twitter_2.png");
 
-        course1.setUserList(userService.getUserListOfACourse(1));
-        course2.setUserList(userService.getUserListOfACourse(2));
+        //course1.setUserList(userService.getUserListOfACourse(1));
+        course1.getUserList().add(new User("JJ", "mcsiud", "jsney"));
+
+        //course2.setUserList(userService.getUserListOfACourse(2));
 
         courseService.createCourse(course1);
         courseService.createCourse(course2);
 
-        //Create forum
         Forum forum1 = new Forum(course1.getId());
         forumService.createForum(forum1);
         course1.setFk_forum(forum1.getId());
@@ -62,17 +63,17 @@ public class CourseController {
         course2.setFk_forum(forum2.getId());
     }
 
-    @GetMapping("/courses/")            //courses list
+    @GetMapping("/courses/")        //courses list
     public String getAll(Model model) {
         model.addAttribute("courses", courseService.getAll());
         return "listCourses";
     }
-    @GetMapping("/addCourse/")                      //Show form of add course
+    @GetMapping("/addCourse/")      //Show form of add course
     public String addCourse(Model model) {
         model.addAttribute("title", "FORMULARIO NUEVO CURSO");
         return "newCourse";
     }
-    @PostMapping("/courses/")                  //Save course
+    @PostMapping("/courses/")       //Save course
     public String createCourse(Model model, @RequestParam String title, @RequestParam String price,
                                @RequestParam String description, @RequestParam int duration, @RequestParam String image) {
         courseService.createCourse(new Course(title, price, duration, description, image));
@@ -80,7 +81,7 @@ public class CourseController {
         return "listCourses";
     }
 
-    @GetMapping("/courses/{id}/")        //just one course
+    @GetMapping("/courses/{id}/")       //just one course
     public String getOne(Model model, @PathVariable long id) {
         Course course = courseService.getOne(id);
         model.addAttribute("course", course);
@@ -89,13 +90,13 @@ public class CourseController {
         return "course";
     }
 
-    @GetMapping("/courses/{id}/edit/")          //Put course
+    @GetMapping("/courses/{id}/edit/")      //Put course
     public String updateCourse(Model model, @PathVariable long id) {
         model.addAttribute("course", courseService.getOne(id));
         return "updateCourse";
     }
 
-    @PostMapping("/courses/{id}/edit/")                  //Save modify course
+    @PostMapping("/courses/{id}/edit/")     //Save modified course
     public String updateCourse(Model model, @PathVariable long id, @RequestParam String title, @RequestParam String price,
                                 @RequestParam String description, @RequestParam int duration, @RequestParam String image) {
 
@@ -104,7 +105,7 @@ public class CourseController {
         return "redirect:/courses/{id}/";
     }
 
-    @GetMapping("/courses/{id}/delete/")            //Delete course
+    @GetMapping("/courses/{id}/delete/")    //Delete course
     public String deleteCourse(Model model, @PathVariable int id) {
         courseService.deleteCourse(id);
         return "redirect:/courses/";

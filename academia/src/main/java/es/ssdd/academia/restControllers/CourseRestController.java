@@ -20,7 +20,7 @@ public class CourseRestController {
     }
 
     @GetMapping("/courses/{id}/")
-    public ResponseEntity<Course> updateCourse(@PathVariable long id) {
+    public ResponseEntity<Course> getCourse(@PathVariable long id) {
         Course tempCourse = courseService.getOne(id);
         if (tempCourse != null) {
             return new ResponseEntity<>(tempCourse, HttpStatus.OK);

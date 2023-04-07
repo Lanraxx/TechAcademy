@@ -2,6 +2,7 @@ package es.ssdd.academia.services;
 
 import es.ssdd.academia.entities.Comment;
 import es.ssdd.academia.entities.Course;
+import es.ssdd.academia.entities.Forum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,5 +41,20 @@ public class CommentService {
             }
         }
         return null;
+    }
+
+    public Comment modifyComment(long id, Comment newComment) {
+        Comment comment = mapComments.get(id);
+        comment.setComment(newComment.getComment());
+        return comment;
+    }
+
+    public void deleteAllComments(long idForum) {
+        for (Map.Entry<Long, Comment> entry : mapComments.entrySet()) {
+            Comment c = entry.getValue();
+            if (idForum == c.getFk_forum()){
+                mapComments.remove(c.getId());
+            }
+        }
     }
 }

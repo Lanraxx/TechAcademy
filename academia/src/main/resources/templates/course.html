@@ -57,11 +57,15 @@
                                 <h6><u>{{author.username}}</u></h6>
                                 <p>{{comment}}</p>
                             </div>
-                            <a href="/courses/{{course.id}}/deleteComment/{{id}}"><button class="deleteComment">Eliminar comentario</button></a>
+                            <div class="buttons">
+                                <a href="/courses/{{course.id}}/deleteComment/{{id}}/"><button class="deleteComment">Eliminar comentario</button></a>
+                                <a href="/courses/{{course.id}}/editComment/{{id}}/"><button class="editComment">Editar comentario</button></a>
+                            </div>
                         </div>
                         {{/comments}}
                         <div class="buttons">
                             <a href="/courses/{{id}}/addComment/"><button class="addComment">Añadir comentario</button></a>
+                            <a href="/courses/{{id}}/deleteComments/"><button class="deleteComment">Eliminar todos los comentarios</button></a>
                         </div>
                     </div>
                 </div>
