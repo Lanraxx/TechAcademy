@@ -21,7 +21,6 @@ public class ForumController {
     @Autowired
     CourseService courseService;
 
-
     @GetMapping("/{id}/deleteComments/")    //Delete all comments
     public String deleteComments(@PathVariable int id) {
         Course c = courseService.getOne(id);

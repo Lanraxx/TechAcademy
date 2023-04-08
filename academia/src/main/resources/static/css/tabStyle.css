@@ -31,17 +31,11 @@ body {
 h2, p {
   margin: 0;
 }
-a.link {
-    color: black;
-}
-/*
 .tabs a {
   text-decoration: none;
+  color: #BB69E8;
 }
-.tabs a:active {
-    color: black;
-}
-*/
+
 .tabs * {
   box-sizing: border-box;
 }

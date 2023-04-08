@@ -1,7 +1,6 @@
 package es.ssdd.academia.restControllers;
 
 import es.ssdd.academia.entities.Comment;
-import es.ssdd.academia.entities.Course;
 import es.ssdd.academia.services.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
