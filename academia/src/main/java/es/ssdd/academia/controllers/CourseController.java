@@ -29,28 +29,50 @@ public class CourseController {
     @PostConstruct
     public void courseController() {
         //Create courses
-        Course course1 = new Course("Introducción a Java", "Gratis", 10,
+        Course course1 = new Course("Introducción a Java", "Gratis", "5 horas",
                 "Java es un lenguaje de programación orientado a objetos y, al mismo tiempo, una plataforma informática "
-                        + "para el diseño y desarrollo de aplicaciones para distintos dispositivos."
+                        + "para el diseño y desarrollo de aplicaciones para distintos dispositivos. "
                         + "Como curiosidad, te podemos contar que se trata de un sistema que se creó en 1995 y que tenía como "
                         + "objetivo ser un lenguaje de programación de estructura sencilla y que pudiese ser ejecutado en todos "
                         + "los sistemas operativos posibles. Java sigue siendo, tras más de 20 años en el mercado, "
-                        + "uno de los lenguajes de programación más usados del mundo."
+                        + "uno de los lenguajes de programación más usados del mundo. "
                         + "Son muchas las empresas que lo emplean para el desarrollo de tecnologías y aplicaciones en todo "
                         + "tipo de sistemas y dispositivos. Sin embargo, la cantidad de profesionales especializados en Java "
                         + "no ha crecido al mismo ritmo que su uso, por lo que los programadores y desarrolladores Java son "
                         + "perfiles muy cotizados.",
                 "https://www.oracle.com/oce/press/assets/CONT2F6AE229113D42EC9C59FAED5BAA0380/native/og-social-java-logo.gif");
 
-        Course course2 = new Course("C2", "30", 4, "bueno",
-                "/images/twitter_2.png");
+        Course course2 = new Course("Excel II", "10 euros", "1 hora y 30 minutos",
+                "Excel es una herramienta muy eficaz para obtener información con significado a partir de grandes cantidades "
+                        + "de datos. También funciona muy bien con cálculos sencillos y para realizar el seguimiento de casi cualquier "
+                        + "tipo de información. Tiene una gran capacidad de computación y gráfica ya que es capaz de convertir datos, "
+                        + "estadísticas, cálculos, textos, números y archivos ya existentes en reportes fáciles de comprender, utilizando "
+                        + "gráficos y fórmulas. A día de hoy, son muchas las empresas que solicitan conocer y usar Excel para acceder a "
+                        + "un puesto de trabajo",
+                "https://concepto.de/wp-content/uploads/2018/09/excel3-e1537469723415.jpg");
+
+        Course course3 = new Course("Cloud Computing: herramientas en la nube", "5 euros", "2 horas",
+                "El Cloud Computing, más conocido como “la nube”, es una tecnología que permite utilizar diferentes servicios "
+                        + "como el almacenamiento de archivos, uso de aplicaciones o la conexión de dispositivos, todo ello sin ocupar "
+                        + "espacio en el disco duro de nuestro ordenador, está alojado en servidores remotos. Herramientas que se tratan "
+                        + "en este curso son: Google Drive, Evernote, Dropbox.",
+                "https://ozein.es/wp-content/uploads/2021/03/Cloud-Computing.jpg");
+        Course course4 = new Course("Python avanzado", "Gratis", "4 horas y 30 minutos",
+                "Python es un lenguaje de alto nivel de programación interpretado cuya filosofía hace hincapié en la "
+                        + "legibilidad de su código, se utiliza para desarrollar aplicaciones de todo tipo, ejemplos: Instagram, Netflix, "
+                        + "Spotify, Panda3D, entre otros. Los desarrolladores utilizan Python porque es eficiente y fácil de aprender, "
+                        + "además de que se puede ejecutar en muchas plataformas diferentes.",
+                "https://www.icog.es/cursos/wp-content/uploads/2020/09/phyton.png");
 
         course1.setUserList(userService.getUserListOfACourse(1));
         course2.setUserList(userService.getUserListOfACourse(2));
-        //course1.getUserList().add(new User("JJ", "mcsiud", "jsney"));
+        course3.setUserList(userService.getUserListOfACourse(3));
+        course4.setUserList(userService.getUserListOfACourse(4));
 
         courseService.createCourse(course1);
         courseService.createCourse(course2);
+        courseService.createCourse(course3);
+        courseService.createCourse(course4);
 
         //Create forum
         Forum forum1 = new Forum(course1.getId());
@@ -60,6 +82,14 @@ public class CourseController {
         Forum forum2 = new Forum(course2.getId());
         forumService.createForum(forum2);
         course2.setFk_forum(forum2.getId());
+
+        Forum forum3 = new Forum(course3.getId());
+        forumService.createForum(forum3);
+        course3.setFk_forum(forum3.getId());
+
+        Forum forum4 = new Forum(course4.getId());
+        forumService.createForum(forum4);
+        course4.setFk_forum(forum4.getId());
     }
 
     @GetMapping("/courses/")                        //courses list
@@ -76,7 +106,7 @@ public class CourseController {
 
     @PostMapping("/courses/")                       //Save course
     public String createCourses(Model model, @RequestParam String title, @RequestParam String price,
-                               @RequestParam String description, @RequestParam int duration, @RequestParam String image) {
+                               @RequestParam String description, @RequestParam String duration, @RequestParam String image) {
         courseService.createCourse(new Course(title, price, duration, description, image));
         model.addAttribute("courses", courseService.getAll());
         return "listCourses";
@@ -99,7 +129,7 @@ public class CourseController {
 
     @PostMapping("/courses/{id}/edit/")                  //Save modify course
     public String updateCourse(Model model, @PathVariable long id, @RequestParam String title, @RequestParam String price,
-                               @RequestParam String description, @RequestParam int duration, @RequestParam String image) {
+                               @RequestParam String description, @RequestParam String duration, @RequestParam String image) {
 
         Course courseModified = new Course(title, price, duration, description, image);
         courseService.modifyCourse(id, courseModified);

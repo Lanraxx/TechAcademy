@@ -8,15 +8,6 @@
     background: linear-gradient(to bottom left, #3C71E3, 30%, #A937E7);
 }
 
-#navigation{
-    background: #000000;
-}
-
-#navbarDropdown{
-    color: #FFFFFF;
-    font-size: 20px;
-}
-
 .pageContainer {
     width: 1080px;
     margin: auto;
@@ -28,21 +19,21 @@
     box-shadow: 0 10px 10px 0px rgba(0, 0, 0, 0.8);
 }
 
-#descripcion {
+#description {
     display: grid;
     grid-template-columns: 40% 60%;
     padding: 5px;
     color: black;
 }
 
-#detalles {
+#details {
     padding: 5px;
     align-items: center;
     border-radius: 10px;
     box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.8);
 }
 
-#detalles li {
+#details li {
     margin-left: 10px;
 }
 
@@ -54,7 +45,7 @@
     box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.8);
 }
 
-#listaAlumnos {
+#studentsList {
     padding: 5px;
     margin-top: 35px;
     position: relative;
@@ -88,29 +79,11 @@
     margin-right: 30px;
 }
 
-footer {
-    background-color: black;
-    color: white;
-}
-
-ul{
-    list-style: none;
-}
-
-.subtitlesend {
-    font-size: 20px;
-}
-
-.pointsend {
-    font-size: 12px;
-}
-
 .bodyPopUp {
     background-color: pink;
     display:flex;
     align-items: center;
     justify-content:center;
-    /*min-height: 100vh;*/
     margin:0;
 }
 

@@ -5,7 +5,7 @@
 }
 
 header {
-  height:550px;
+  height:500px;
   background-image: url('https://www.grupoioe.es/wp-content/uploads/2019/10/informatica-2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -18,7 +18,7 @@ tech {
     color:white;
     font-family:courier;
     position:relative;
-    right:160px;
+    right:140px;
     bottom:20px;
 }
 
@@ -27,7 +27,7 @@ academy {
     color:white;
     font-family:courier;
     position:relative;
-    right:80px;
+    right:60px;
     bottom:40px;
 }
 
@@ -36,7 +36,7 @@ slogan {
     font-family:courier new;
     color:white;
     position:relative;
-    right:80px;
+    right:40px;
     bottom:35px;
 }
 
@@ -55,56 +55,10 @@ slogan {
     color: #FFF;
 }
 
-#navigation{
-    background: #000000;
-}
-
-#navbarDropdown{
-    color: #FFFFFF;
-    font-size: 20px;
-}
-
-#aboutUs{
-    color: #FFFFFF;
-    position: relative;
-    right: 40px;
-    font-size: 20px;
-}
-
-#courses{
-    color: #FFFFFF;
-    position: relative;
-    right: 90px;
-    font-size: 20px;
-}
-
-#users{
-    color: #FFFFFF;
-    position: relative;
-    right: 10px;
-    font-size: 20px;
-}
-
 hr {
-    max-width: 70%;
+    max-width: 75%;
     height: 8px;
     background-color: black;
-    margin: 20px auto;
-}
-
-footer {
-    background: black;
-    color:white;
-}
-
-ul{                     /*Remove points from list*/
-    list-style: none;
-}
-
-.subtitlesend {
-    font-size: 20px;
-}
-
-.pointsend {
-    font-size: 12px;
+    position: relative;
+    left: 175px;
 }

@@ -74,11 +74,6 @@ public class CourseService {
                     iterator.remove();
                 }
             }
-            /*for (User u : users) {
-                if (u.getId() == id) {
-                    c.getUserList().remove(u);
-                }
-            }*/
         }
     }
 }

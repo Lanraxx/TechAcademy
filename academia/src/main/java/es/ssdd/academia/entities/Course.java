@@ -27,7 +27,7 @@ public class Course {
     private String price;
     //private boolean certificate;         //Si ofrece un certificado o no
     @JsonView(BasicCourse.class)
-    private int duration;
+    private String duration;
     @JsonView(BasicCourse.class)
     private String description;
     @JsonView(BasicCourse.class)
@@ -36,7 +36,7 @@ public class Course {
     private List<User> userList = new ArrayList<>();
 
 
-    public Course(String title, String price, int duration, String description, String urlImage){
+    public Course(String title, String price, String duration, String description, String urlImage){
         this.title = title;
         this.price = price;
         this.duration = duration;

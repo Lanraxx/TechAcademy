@@ -30,7 +30,13 @@ public class UserRestController {
     @DeleteMapping("/users/{id}/delete/")
     public ResponseEntity<User> deleteUser(@PathVariable int id){
         User tem = userService.deleteUser(id);
-        //courseService.deleteUser(id);
+        courseService.deleteUser(id);
+        return new ResponseEntity<>(tem, HttpStatus.OK);
+    }
+
+    @PostMapping("/addUser/")
+    public ResponseEntity<User> createUser(@RequestBody User user) {
+        User tem = userService.createUser(user);
         return new ResponseEntity<>(tem, HttpStatus.OK);
     }
 }

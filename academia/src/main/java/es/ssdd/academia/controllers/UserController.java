@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
@@ -79,13 +81,26 @@ public class UserController {
     @GetMapping("/users/")                          //users list
     public String users(Model model) {
         model.addAttribute("users", userService.getAll());
+        //model.addAttribute("courses", userService.getUserListOfACourse())
         return "users";
     }
 
-    @GetMapping("/users/{id}/delete/")                //delete one user
+    @GetMapping("/users/{id}/delete/")                //Delete one user
     public String deleteUser(Model model, @PathVariable long id) {
         courseService.deleteUser(id);
         userService.deleteUser(id);
         return "redirect:/users/";
+    }
+
+    @GetMapping("/addUser/")                      //Show form of add user
+    public String addUser(Model model) {
+        return "register";
+    }
+
+    @PostMapping("/users/")
+    public String createUser(Model model, @RequestParam String username, @RequestParam String email, @RequestParam String password) {
+        userService.createUser(new User(username, email, password));
+        model.addAttribute("users", userService.getAll());
+        return "users";
     }
 }
