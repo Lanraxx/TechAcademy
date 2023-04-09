@@ -22,6 +22,10 @@ table {
     height: 30px;
 }
 
+#pen {
+    height: 30px;
+}
+
 #buttonAdd {
     position: relative;
     left: 500px;
