@@ -1,5 +1,7 @@
 package es.ssdd.academia.restControllers;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import es.ssdd.academia.entities.User;
 import es.ssdd.academia.services.CourseService;
 import es.ssdd.academia.entities.Course;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,14 +13,17 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api")
 public class CourseRestController {
+    interface DetailsCourse extends Course.BasicCourse, Course.Users, User.BasicUser {}
     @Autowired
     CourseService courseService;
 
+    @JsonView(Course.BasicCourse.class)
     @GetMapping("/courses/")
     public ResponseEntity getAll() {
         return new ResponseEntity<>(courseService.getAll(), HttpStatus.OK);
     }
 
+    @JsonView(DetailsCourse.class)
     @GetMapping("/courses/{id}/")
     public ResponseEntity<Course> getCourse(@PathVariable long id) {
         Course tempCourse = courseService.getOne(id);
@@ -29,6 +34,7 @@ public class CourseRestController {
         }
     }
 
+    @JsonView(Course.BasicCourse.class)
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/courses/")
     public Course addCourse(@RequestBody Course course){
@@ -36,12 +42,14 @@ public class CourseRestController {
         return course;
     }
 
+    @JsonView(Course.BasicCourse.class)
     @DeleteMapping("/courses/{id}/delete/")
     public ResponseEntity<Course> deleteCourse(@PathVariable long id) {
         Course tem = courseService.deleteCourse(id);
         return new ResponseEntity<>(tem, HttpStatus.OK);
     }
 
+    @JsonView(Course.BasicCourse.class)
     @PutMapping("/courses/{id}/edit/")
     public ResponseEntity<Course> updateCourse(@RequestBody Course course, @PathVariable long id) {
         Course tempCourse = courseService.getOne(id);

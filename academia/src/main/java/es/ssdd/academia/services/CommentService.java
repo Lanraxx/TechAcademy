@@ -46,10 +46,11 @@ public class CommentService {
     public Comment modifyComment(long id, Comment newComment) {
         Comment comment = mapComments.get(id);
         comment.setComment(newComment.getComment());
+        comment.setAuthor(newComment.getAuthor());
         return comment;
     }
 
-    public void deleteAllComments(long idForum) {
+    public void deleteCommentsOfAForum(long idForum) {
         for (Map.Entry<Long, Comment> entry : mapComments.entrySet()) {
             Comment c = entry.getValue();
             if (idForum == c.getFk_forum()){

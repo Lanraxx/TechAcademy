@@ -28,6 +28,7 @@ public class UserService {
     public Collection<User> getAll() {
         return usersMap.values();
     }
+    public User getOne(long id) {return usersMap.get(id);}
 
     public List<User> getUserListOfACourse(long id) {
         List<User> userList = new ArrayList<>();

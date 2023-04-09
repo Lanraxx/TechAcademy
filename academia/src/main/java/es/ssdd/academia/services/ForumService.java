@@ -26,8 +26,17 @@ public class ForumService {
         return forum;
     }
 
+    public Collection<Forum> getAll() {
+        return forumMap.values();
+    }
+
     public Forum getOne(long id) {
         return forumMap.get(id);
+    }
+
+    public Forum deleteForum(long id) {
+        this.deleteAllComments(id);
+        return forumMap.remove(id);
     }
 
     public Collection<Comment> getComments (Forum forum) {
@@ -40,4 +49,8 @@ public class ForumService {
         return commentList;
     }
 
+    public Forum deleteAllComments(long idForum) {
+        commentService.deleteCommentsOfAForum(idForum);
+        return this.getOne(idForum);
+    }
 }

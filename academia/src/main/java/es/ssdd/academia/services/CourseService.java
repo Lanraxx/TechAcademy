@@ -15,6 +15,8 @@ import java.util.concurrent.atomic.AtomicLong;
 public class CourseService {
     @Autowired
     ForumService forumService;
+    @Autowired
+    UserService userService;
 
     private Map<Long, Course> mapCourses = new ConcurrentHashMap<>();
     private AtomicLong id = new AtomicLong();
@@ -52,10 +54,33 @@ public class CourseService {
         for (Map.Entry<Long, Course> entry : mapCourses.entrySet()) {
             Course c = entry.getValue();
             if (id == c.getId()){
+                forumService.deleteForum(mapCourses.get(id).getFk_forum());
+                List<User> list = userService.getUserListOfACourse(id);
+                for (int i = 0; i < list.size(); i++) {
+                    for (int j = 0; j < list.get(i).getEnrolledCourses().size(); j++) {
+                        if ((list.get(i).getEnrolledCourses().get(j).getId()) == id) {
+                            list.get(i).getEnrolledCourses().remove(j);
+                        }
+                    }
+                }
                 mapCourses.remove(id);
                 return c;
             }
         }
         return null;
+    }
+
+    public void deleteUser(long id) {
+        for (Map.Entry<Long, Course> entry : mapCourses.entrySet()) {
+            Course c = entry.getValue();
+            List<User> users = c.getUserList();
+            Iterator<User> iterator = users.iterator();
+            while (iterator.hasNext()) {
+                User u = iterator.next();
+                if (u.getId() == id) {
+                    iterator.remove();
+                }
+            }
+        }
     }
 }

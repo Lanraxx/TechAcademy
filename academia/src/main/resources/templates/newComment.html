@@ -55,8 +55,12 @@
             </div>
 
             <form action="/courses/{{id}}/addComment/" method="post">
+              <p>Autor: </p>
+              <input type='text' name='author'/>
               <p>Comentario:</p>
               <textarea name='newComment' rows=10 cols=40></textarea>
+              <p>Prueba del checkbox:</p>
+              <input type="checkbox">
               <input type='submit' value='Publicar'/>
             </form>
 

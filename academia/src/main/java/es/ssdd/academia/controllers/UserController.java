@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
@@ -23,7 +25,6 @@ public class UserController {
 
     @PostConstruct
     public void UserController () {
-
         List<User> course1List = courseService.getOne(1).getUserList();
         List<User> course2List = courseService.getOne(2).getUserList();
 
@@ -33,10 +34,12 @@ public class UserController {
         User u4 = new User("Jiajie", "djjj@yahoo.es", "jiajie");
         User u5 = new User("Gonzalo", "gonzarico@gamil.com", "9090");
 
+        //Add users to course1
         course1List.add(u1);
         course1List.add(u2);
         course1List.add(u3);
 
+        //Add users to course2
         course2List.add(u4);
         course2List.add(u5);
         course2List.add(u1);
@@ -48,17 +51,18 @@ public class UserController {
         List<Course> enrolledCoursesUser4 = new ArrayList<>();
         List<Course> enrolledCoursesUser5 = new ArrayList<>();
 
-//        enrolledCoursesUser1.add(courseService.getOne(1));
-//        enrolledCoursesUser1.add(courseService.getOne(2));
-//
-//        enrolledCoursesUser2.add(courseService.getOne(1));
-//
-//        enrolledCoursesUser3.add(courseService.getOne(1));
-//        enrolledCoursesUser3.add(courseService.getOne(2));
-//
-//        enrolledCoursesUser4.add(courseService.getOne(2));
-//
-//        enrolledCoursesUser5.add(courseService.getOne(2));
+        //Add to each user the courses in which they are enrolled
+        enrolledCoursesUser1.add(courseService.getOne(1));
+        enrolledCoursesUser1.add(courseService.getOne(2));
+
+        enrolledCoursesUser2.add(courseService.getOne(1));
+
+        enrolledCoursesUser3.add(courseService.getOne(1));
+        enrolledCoursesUser3.add(courseService.getOne(2));
+
+        enrolledCoursesUser4.add(courseService.getOne(2));
+
+        enrolledCoursesUser5.add(courseService.getOne(2));
 
         u1.setEnrolledCourses(enrolledCoursesUser1);
         u2.setEnrolledCourses(enrolledCoursesUser2);
@@ -66,6 +70,7 @@ public class UserController {
         u4.setEnrolledCourses(enrolledCoursesUser4);
         u5.setEnrolledCourses(enrolledCoursesUser5);
 
+        //Add users to map
         userService.createUser(u1);
         userService.createUser(u2);
         userService.createUser(u3);
@@ -83,5 +88,17 @@ public class UserController {
     public String deleteUser(@PathVariable long id) {
         userService.deleteUser(id);
         return "redirect:/users/";
+    }
+
+    @GetMapping("/addUser/")                      //Show form of add user
+    public String addUser(Model model) {
+        return "register";
+    }
+
+    @PostMapping("/users/")
+    public String createUser(Model model, @RequestParam String username, @RequestParam String email, @RequestParam String password) {
+        userService.createUser(new User(username, email, password));
+        model.addAttribute("users", userService.getAll());
+        return "users";
     }
 }

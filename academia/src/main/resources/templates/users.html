@@ -5,7 +5,6 @@
     <title>Lista usuarios</title>
     <link type="text/css" rel="stylesheet" href="/css/navStyle.css">
     <link type="text/css" rel="stylesheet" href="/css/usersStyle.css">
-    <link type="text/css" rel="stylesheet" href="/css/button.css"/>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-
       rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -42,25 +41,50 @@
         </div>
     </nav>
 
+    <br>
+
     <div class="container">
-        <table>
-            <tr>
-                <th>USUARIO</th>
-                <th>IDENTIFICADOR</th>
-                <th>EMAIL</th>
-                <th>CURSOS MATRICULADO</th>
-            </tr>
-            {{#users}}
-            <tr>
-                <td>{{username}}</td>
-                <td>{{id}}</td>
-                <td>{{email}}</td>
-                <td>N/A</td>
-                <td><a href="/users/{{id}}/delete/"><img src="/images/icono_papelera.png" id="trash"></a></td>
-            </tr>
-            {{/users}}
-        </table>
+        <h1><strong>INFORMACIÓN USUARIOS</strong></h1>
     </div>
+
+    <br>
+
+    <section>
+        <div class="container">
+            <table>
+                <tr>
+                    <th>USUARIO</th>
+                    <th>IDENTIFICADOR</th>
+                    <th>EMAIL</th>
+                    <th>CURSOS MATRICULADO</th>
+                </tr>
+                {{#users}}
+                <tr>
+                    <td>{{username}}</td>
+                    <td>{{id}}</td>
+                    <td>{{email}}</td>
+                    <td>
+                        <ul>
+                            {{#enrolledCourses}}
+                            <li>{{title}}</li>
+                            {{/enrolledCourses}}
+                        </ul>
+                    </td>
+			  <td><a href="#"><img src="/images/icono_lapiz.png" id="pen"></a></td>
+                    <td><a href="/users/{{id}}/delete/"><img src="/images/icono_papelera.png" id="trash"></a></td>
+                </tr>
+                {{/users}}
+            </table>
+        </div>
+    </section>
+
+    <br>
+
+    <div class="container" id="addUser">
+        <a href="/addUser/"><button id="buttonAdd">Añadir usuario</button></a>
+    </div>
+
+    <br><br>
 
     <footer id="footer">
         <div class="container p-5">
@@ -70,21 +94,21 @@
                         <img src="/images/logo.png" height="150">
                     </div>
                     <div class="col-lg-3 col-md-6">
-                        <ul>
+                        <ul class="list">
                             <li class="subtitlesend">Contáctenos</li>
                             <li class="pointsend">Email: techacademy@gmail.com</li>
                             <li class="pointsend">Telefono: +34639528417</li>
                         </ul>
                     </div>
                     <div class="col-lg-3 col-md-6">     <!--col-md-6 es para verlo en teoria en movil--> <!--el 4 deja la separacion de columnas-->
-                        <ul>
+                        <ul class="list">
                             <li class="subtitlesend">Sobre la academia</li>
                             <li class="pointsend">Politica de privacidad</li>
                             <li class="pointsend">Politica de cookies</li>
                         </ul>
                     </div>
                     <div class="col-lg-3 col-md-6">
-                        <ul>
+                        <ul class="list">
                             <li class="subtitlesend">Redes sociales</li>
                             <li>
                                 <div  class="row">

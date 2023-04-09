@@ -8,12 +8,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Comment {
+    //public interface BasicComment{}
     private long id;
     private String comment;
-    private User author;
+    private String author;
     private long fk_forum;
 
-    public Comment(String comment, User author) {
+    public Comment(String comment, String author) {
         this.author = author;
         this.comment = comment;
     }

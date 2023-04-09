@@ -5,33 +5,41 @@
 }
 
 header {
-  height:550px;
-  background-image: url('/images/listaCursos.png');
+  height:500px;
+  background-image: url('/images/listCourses.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 1400px 550px;
   background-position-x:center;
   background-position-y:center;
 }
 
-cursos {
+courses {
     font-size:90px;
     color:white;
     font-family:courier;
     position:relative;
-    right:160px;
+    left: 90px;
     bottom:20px;
 }
 
-informatica {
-    font-size:90px;
+it {
+    font-size:70px;
     color:white;
     font-family:courier;
     position:relative;
-    right:80px;
+    left:30px;
     bottom:40px;
 }
 
-#image {
+hr {
+    max-width: 75%;
+    height: 8px;
+    background-color: black;
+    position: relative;
+    left: 175px;
+}
+
+.card-img-top {
     height:200px;
 }
 
@@ -45,7 +53,6 @@ informatica {
 .card {
     border-radius: 10px;
     box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.8);
-    margin-bottom: 20px;
 }
 
 .card-text {
