@@ -29,6 +29,14 @@ public class CommentController {
         Comment comment2 = new Comment("No me ha gustado, muy mal explicado.", "Antonio");
         comment2.setFk_forum(2);
         commentService.createComment(comment2);
+
+        Comment comment3 = new Comment("Curso súper útil y muy detallado, esencial para los principiantes.", "Sebastian");
+        comment3.setFk_forum(3);
+        commentService.createComment(comment3);
+
+        Comment comment4 = new Comment("Como introducción no está mal pero podría mejorarse.", "Esther");
+        comment4.setFk_forum(1);
+        commentService.createComment(comment4);
     }
 
     @GetMapping("/{id}/addComment/")
