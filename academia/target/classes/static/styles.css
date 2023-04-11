@@ -86,8 +86,8 @@ hr {
 }
 
 footer {
-    background: black;
-    color:white;
+    background-color: black;
+    color: white;
 }
 
 ul{                     /*Quitar los puntos de una lista*/
