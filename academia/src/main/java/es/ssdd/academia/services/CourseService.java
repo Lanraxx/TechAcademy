@@ -48,7 +48,7 @@ public class CourseService {
         course.setDescription(newCourse.getDescription());
         course.setUrlImage(newCourse.getUrlImage());
 
-        mapCourses.put(id, course);
+        //mapCourses.put(id, course);
         return newCourse;
     }
 
@@ -56,7 +56,16 @@ public class CourseService {
         for (Map.Entry<Long, Course> entry : mapCourses.entrySet()) {
             Course c = entry.getValue();
             if (id == c.getId()){
+                forumService.deleteForum(mapCourses.get(id).getFk_forum());
                 mapCourses.remove(id);
+                Collection<User> users = userService.getAll();
+                Iterator<User> iterator = users.iterator();
+                while (iterator.hasNext()) {
+                    User u = iterator.next();
+                    if(u.getEnrolledCourses().contains(c)) {
+                        u.getEnrolledCourses().remove(c);
+                    }
+                }
                 return c;
             }
         }

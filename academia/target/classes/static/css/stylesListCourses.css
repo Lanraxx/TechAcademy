@@ -4,74 +4,42 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/*#navbarDropdown{
-    color: #FFFFFF;
-    font-size: 20px;
-}*/
-
-#acercade{
-    color: #FFFFFF;
-    position: relative;
-    right: 40px;
-    font-size: 20px;
-}
-
-#cursos{
-    color: #FFFFFF;
-    position: relative;
-    right: 90px;
-    font-size: 20px;
-}
-
-#navigation{
-    background: #000000;
-}
-
 header {
-  height:550px;
-  background-image: url('/images/listaCursos.png');
+  height:500px;
+  background-image: url('/images/listCourses.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 1400px 550px;
   background-position-x:center;
   background-position-y:center;
 }
 
-cursos {
+courses {
     font-size:90px;
     color:white;
     font-family:courier;
     position:relative;
-    right:160px;
+    left: 90px;
     bottom:20px;
 }
 
-informatica {
-    font-size:90px;
+it {
+    font-size:70px;
     color:white;
     font-family:courier;
     position:relative;
-    right:80px;
+    left:30px;
     bottom:40px;
 }
 
-footer {
-    background: black;
-    color:white;
+hr {
+    max-width: 75%;
+    height: 8px;
+    background-color: black;
+    position: relative;
+    left: 175px;
 }
 
-ul{                     /*Quitar los puntos de una lista*/
-    list-style: none;
-}
-
-.subtitlesend {
-    font-size: 20px;
-}
-
-.pointsend {
-    font-size: 12px;
-}
-
-#image {
+.card-img-top {
     height:200px;
 }
 
@@ -94,4 +62,17 @@ ul{                     /*Quitar los puntos de una lista*/
 
 #trash{
     height: 30px;
+}
+
+#write-animated {
+    font-size:50px;
+    color:white;
+    font-family:courier;
+    position:relative;
+    left: 950px;
+    bottom:20px;
+}
+
+#topic {
+    font-family: courier;
 }

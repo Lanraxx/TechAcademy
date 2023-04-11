@@ -2,8 +2,6 @@ package es.ssdd.academia.controllers;
 
 import es.ssdd.academia.entities.Comment;
 import es.ssdd.academia.entities.Course;
-import es.ssdd.academia.entities.Forum;
-import es.ssdd.academia.entities.User;
 import es.ssdd.academia.services.CourseService;
 import es.ssdd.academia.services.ForumService;
 import es.ssdd.academia.services.UserService;
@@ -17,6 +15,7 @@ import java.util.Collection;
 
 
 @Controller
+@RequestMapping("/courses")
 public class CourseController {
 
     @Autowired
@@ -52,11 +51,12 @@ public class CourseController {
                 "https://concepto.de/wp-content/uploads/2018/09/excel3-e1537469723415.jpg");
 
         Course course3 = new Course("Cloud Computing: herramientas en la nube", "5 euros", "2 horas",
-                "El Cloud Computing, más conocido como “la nube”, es una tecnología que permite utilizar diferentes servicios "
+                "El Cloud Computing, más conocido como 'la nube', es una tecnología que permite utilizar diferentes servicios "
                         + "como el almacenamiento de archivos, uso de aplicaciones o la conexión de dispositivos, todo ello sin ocupar "
                         + "espacio en el disco duro de nuestro ordenador, está alojado en servidores remotos. Herramientas que se tratan "
                         + "en este curso son: Google Drive, Evernote, Dropbox.",
                 "https://ozein.es/wp-content/uploads/2021/03/Cloud-Computing.jpg");
+
         Course course4 = new Course("Python avanzado", "Gratis", "4 horas y 30 minutos",
                 "Python es un lenguaje de alto nivel de programación interpretado cuya filosofía hace hincapié en la "
                         + "legibilidad de su código, se utiliza para desarrollar aplicaciones de todo tipo, ejemplos: Instagram, Netflix, "
@@ -69,51 +69,35 @@ public class CourseController {
         course3.setUserList(userService.getUserListOfACourse(3));
         course4.setUserList(userService.getUserListOfACourse(4));
 
+        //Add new courses in map and create their forum
         courseService.createCourse(course1);
         courseService.createCourse(course2);
         courseService.createCourse(course3);
         courseService.createCourse(course4);
-
-        //Create forum
-        Forum forum1 = new Forum(course1.getId());
-        forumService.createForum(forum1);
-        course1.setFk_forum(forum1.getId());
-
-        Forum forum2 = new Forum(course2.getId());
-        forumService.createForum(forum2);
-        course2.setFk_forum(forum2.getId());
-
-        Forum forum3 = new Forum(course3.getId());
-        forumService.createForum(forum3);
-        course3.setFk_forum(forum3.getId());
-
-        Forum forum4 = new Forum(course4.getId());
-        forumService.createForum(forum4);
-        course4.setFk_forum(forum4.getId());
     }
 
-    @GetMapping("/courses/")                        //courses list
+    @GetMapping("/")                        //courses list
     public String getAll(Model model) {
         model.addAttribute("courses", courseService.getAll());
         return "listCourses";
     }
 
     @GetMapping("/addCourse/")                      //Show form of add course
-    public String addCourse(Model model) {
-        model.addAttribute("title", "FORMULARIO NUEVO CURSO");
+    public String addCourse() {
         return "newCourse";
     }
 
-    @PostMapping("/courses/")                       //Save course
+    @PostMapping("/")                       //Save course
     public String createCourses(Model model, @RequestParam String title, @RequestParam String price,
                                @RequestParam String description, @RequestParam String duration, @RequestParam String image) {
+
         courseService.createCourse(new Course(title, price, duration, description, image));
         model.addAttribute("courses", courseService.getAll());
         return "listCourses";
     }
 
-    @GetMapping("/courses/{id}/")                   //just one course
-    public String course(Model model, @PathVariable int id) {
+    @GetMapping("/{id}/")                   //just one course
+    public String getOne(Model model, @PathVariable long id) {
         Course course = courseService.getOne(id);
         model.addAttribute("course", course);
         Collection<Comment> commentList = forumService.getComments(forumService.getOne(course.getFk_forum()));
@@ -121,13 +105,13 @@ public class CourseController {
         return "course";
     }
 
-    @GetMapping("/courses/{id}/edit/")          //Put course
+    @GetMapping("/{id}/edit/")          //Put course
     public String updateCourse(Model model, @PathVariable long id) {
         model.addAttribute("course", courseService.getOne(id));
         return "updateCourse";
     }
 
-    @PostMapping("/courses/{id}/edit/")                  //Save modify course
+    @PostMapping("/{id}/edit/")                  //Save modify course
     public String updateCourse(Model model, @PathVariable long id, @RequestParam String title, @RequestParam String price,
                                @RequestParam String description, @RequestParam String duration, @RequestParam String image) {
 
@@ -136,8 +120,8 @@ public class CourseController {
         return "redirect:/courses/{id}/";
     }
 
-    @GetMapping("/courses/{id}/delete/")            //Delete course
-    public String deleteCourse(Model model, @PathVariable long id) {
+    @GetMapping("/{id}/delete/")            //Delete course
+    public String deleteCourse(@PathVariable long id) {
         courseService.deleteCourse(id);
         return "redirect:/courses/";
     }

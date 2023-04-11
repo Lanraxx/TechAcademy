@@ -1,7 +1,6 @@
 package es.ssdd.academia.entities;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import es.ssdd.academia.entities.Course;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

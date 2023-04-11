@@ -2,9 +2,8 @@
     background: #000000;
 }
 
-#navbarDropdown{
-    color: #FFFFFF;
-    font-size: 20px;
+#imageFrontPage {
+    height: 75px;
 }
 
 #aboutUs{
@@ -33,7 +32,11 @@ footer {
     color:white;
 }
 
-ul{                     /*Quitar los puntos de una lista*/
+#lowerLogo {
+    height: 150px;
+}
+
+.list{                     /*Quitar los puntos de una lista*/
     list-style: none;
 }
 

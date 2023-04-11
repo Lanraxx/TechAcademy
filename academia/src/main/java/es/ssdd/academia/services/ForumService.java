@@ -15,10 +15,12 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @Service
 public class ForumService {
-    private Map<Long, Forum> forumMap = new ConcurrentHashMap<Long, Forum>();
-    private AtomicLong id = new AtomicLong();
+
     @Autowired
     CommentService commentService;
+    private Map<Long, Forum> forumMap = new ConcurrentHashMap<Long, Forum>();
+    private AtomicLong id = new AtomicLong();
+
 
     public Forum createForum(Forum forum){
         long tem = id.incrementAndGet();
@@ -27,8 +29,17 @@ public class ForumService {
         return forum;
     }
 
+    public Collection<Forum> getAll() {
+        return forumMap.values();
+    }
+
     public Forum getOne(long id) {
         return forumMap.get(id);
+    }
+
+    public Forum deleteForum(long id) {
+        this.deleteAllComments(id);
+        return forumMap.remove(id);
     }
 
     public Collection<Comment> getComments (Forum forum) {
@@ -39,5 +50,10 @@ public class ForumService {
                 commentList.add(comment);
         }
         return commentList;
+    }
+
+    public Forum deleteAllComments(long idForum) {
+        commentService.deleteCommentsOfAForum(idForum);
+        return this.getOne(idForum);
     }
 }

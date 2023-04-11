@@ -1,6 +1,5 @@
 package es.ssdd.academia.services;
 
-import es.ssdd.academia.entities.Course;
 import es.ssdd.academia.entities.User;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +27,10 @@ public class UserService {
         return usersMap.values();
     }
 
+    public User getOne(long id) {
+        return usersMap.get(id);
+    }
+
     public List<User> getUserListOfACourse(long id) {
         List<User> userList = new ArrayList<>();
         for (Map.Entry<Long, User> entry : usersMap.entrySet()) {
@@ -50,6 +53,17 @@ public class UserService {
             }
         }
         return null;
+    }
+
+    public User modifyUser (long id, User newUser) {
+        User user = usersMap.get(id);
+
+        user.setUsername(newUser.getUsername());
+        user.setEmail(newUser.getEmail());
+        user.setPassword(newUser.getPassword());
+        user.setEnrolledCourses(newUser.getEnrolledCourses());
+
+        return user;
     }
 
 }

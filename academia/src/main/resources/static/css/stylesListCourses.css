@@ -63,3 +63,16 @@ hr {
 #trash{
     height: 30px;
 }
+
+#write-animated {
+    font-size:50px;
+    color:white;
+    font-family:courier;
+    position:relative;
+    left: 950px;
+    bottom:20px;
+}
+
+#topic {
+    font-family: courier;
+}
