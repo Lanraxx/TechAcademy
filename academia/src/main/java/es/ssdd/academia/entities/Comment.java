@@ -10,10 +10,10 @@ import lombok.NoArgsConstructor;
 public class Comment {
     private long id;
     private String comment;
-    private User author;
+    private String author;
     private long fk_forum;
 
-    public Comment(String comment, User author) {
+    public Comment(String comment, String author) {
         this.author = author;
         this.comment = comment;
     }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link type="text/css" rel="stylesheet" href="/css/registerStyle.css"/>
+  <link type="text/css" rel="stylesheet" href="/css/button.css"/>
+
+  <title>Tech Academy</title>
+</head>
+<body>
+
+  <div class="box">
+    <form action="/users/" method="post">
+      <h2>Registrarse</h2>
+      <div class="inputBox">
+        <input type="text" required="required" name="username">
+        <span>Nombre de usuario</span>
+        <i></i>
+      </div>
+      <div class="inputBox">
+        <input type="text" required="required" name="email">
+        <span>Dirección de correo electrónico</span>
+        <i></i>
+      </div>
+      <div class="inputBox">
+        <input type="password" required="required" name="password">
+        <span>Contraseña</span>
+        <i></i>
+      </div>
+      <input type="submit" value="Crear">
+      <br>
+    </form>
+    <div id="back">
+      <a href="/users/"><button>Volver atr&aacutes</button></a>
+    </div>
+  </div>
+
+</body>
+</html>
