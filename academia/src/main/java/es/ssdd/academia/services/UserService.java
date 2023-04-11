@@ -1,8 +1,6 @@
 package es.ssdd.academia.services;
 
-import es.ssdd.academia.entities.Course;
 import es.ssdd.academia.entities.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -41,6 +39,17 @@ public class UserService {
             }
         }
         return userList;
+    }
+
+    public User modifyUser(long id, User newUser) {
+        User u = usersMap.get(id);
+
+        u.setUsername(newUser.getUsername());
+        u.setEmail(newUser.getEmail());
+        u.setPassword(newUser.getPassword());
+        u.setEnrolledCourses(newUser.getEnrolledCourses());
+
+        return u;
     }
 
     public User deleteUser(long id) {

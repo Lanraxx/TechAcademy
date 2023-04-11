@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Comment {
-    //public interface BasicComment{}
     private long id;
     private String comment;
     private String author;

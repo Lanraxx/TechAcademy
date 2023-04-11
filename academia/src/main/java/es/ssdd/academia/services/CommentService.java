@@ -1,11 +1,7 @@
 package es.ssdd.academia.services;
 
 import es.ssdd.academia.entities.Comment;
-import es.ssdd.academia.entities.Course;
-import es.ssdd.academia.entities.Forum;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -30,6 +26,7 @@ public class CommentService {
     public Comment getOne(long id) {
         return mapComments.get(id);
     }
+
     public Map<Long, Comment> getMap() {return mapComments;}
 
     public Comment deleteComment(long id) {

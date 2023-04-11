@@ -24,11 +24,6 @@ public class Course {
     private String title;
     @JsonView(BasicCourse.class)
     private String price;
-    /*
-    @JsonView(BasicCourse.class)
-    private boolean certificate;         //Si ofrece un certificado o no
-
-     */
     @JsonView(BasicCourse.class)
     private String duration;
     @JsonView(BasicCourse.class)

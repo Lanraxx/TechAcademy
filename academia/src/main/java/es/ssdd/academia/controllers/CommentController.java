@@ -23,11 +23,11 @@ public class CommentController {
     @PostConstruct
     public void CommentController () {
         Comment comment1 = new Comment("Muy buen curso.", "Nico");
-        comment1.setFk_forum(5);
+        comment1.setFk_forum(1);
         commentService.createComment(comment1);
 
-        Comment comment2 = new Comment("No me ha gustado, muy mal explicado.", "Maria Antonieta");
-        comment2.setFk_forum(6);
+        Comment comment2 = new Comment("No me ha gustado, muy mal explicado.", "Antonio");
+        comment2.setFk_forum(2);
         commentService.createComment(comment2);
     }
 
@@ -60,7 +60,7 @@ public class CommentController {
     }
 
     @GetMapping("/{id}/deleteComment/{idC}/")    //Delete comment
-    public String deleteComment(@PathVariable int id, @PathVariable long idC) {
+    public String deleteComment(@PathVariable long id, @PathVariable long idC) {
         commentService.deleteComment(idC);
         return "redirect:/courses/{id}/";
     }

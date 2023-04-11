@@ -17,7 +17,7 @@
     border-radius: 10px;
     box-shadow: 0 10px 10px 0px rgba(0, 0, 0, 0.8);
 }
-#descripcion {
+#description {
     display: grid;
     grid-template-columns: 40% 60%;
     padding: 5px;
@@ -27,13 +27,13 @@
     margin: auto;
     padding: 20px;
 }
-#detalles {
+#details {
     padding: 5px;
     align-items: center;
     border-radius: 10px;
     box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.8);
 }
-#detalles li {
+#details li {
     margin-left: 10px;
 }
 #about {
@@ -43,7 +43,7 @@
     border-radius: 10px;
     box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.8);
 }
-#listaAlumnos {
+#userList {
     padding: 5px;
     margin-top: 35px;
     position: relative;

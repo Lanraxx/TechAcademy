@@ -11,20 +11,20 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/courses")
 public class CourseRestController {
     interface DetailsCourse extends Course.BasicCourse, Course.Users, User.BasicUser {}
     @Autowired
     CourseService courseService;
 
     @JsonView(Course.BasicCourse.class)
-    @GetMapping("/courses/")
+    @GetMapping("/")
     public ResponseEntity getAll() {
         return new ResponseEntity<>(courseService.getAll(), HttpStatus.OK);
     }
 
     @JsonView(DetailsCourse.class)
-    @GetMapping("/courses/{id}/")
+    @GetMapping("/{id}/")
     public ResponseEntity<Course> getCourse(@PathVariable long id) {
         Course tempCourse = courseService.getOne(id);
         if (tempCourse != null) {
@@ -36,21 +36,21 @@ public class CourseRestController {
 
     @JsonView(Course.BasicCourse.class)
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/courses/")
+    @PostMapping("/")
     public Course addCourse(@RequestBody Course course){
         courseService.createCourse(course);
         return course;
     }
 
     @JsonView(Course.BasicCourse.class)
-    @DeleteMapping("/courses/{id}/delete/")
+    @DeleteMapping("/{id}/delete/")
     public ResponseEntity<Course> deleteCourse(@PathVariable long id) {
         Course tem = courseService.deleteCourse(id);
         return new ResponseEntity<>(tem, HttpStatus.OK);
     }
 
     @JsonView(Course.BasicCourse.class)
-    @PutMapping("/courses/{id}/edit/")
+    @PutMapping("/{id}/edit/")
     public ResponseEntity<Course> updateCourse(@RequestBody Course course, @PathVariable long id) {
         Course tempCourse = courseService.getOne(id);
         if (tempCourse != null) {

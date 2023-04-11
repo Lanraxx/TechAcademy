@@ -3,7 +3,6 @@ package es.ssdd.academia.services;
 import es.ssdd.academia.entities.Course;
 import es.ssdd.academia.entities.Forum;
 import es.ssdd.academia.entities.User;
-import es.ssdd.academia.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,7 +45,7 @@ public class CourseService {
         course.setDescription(newCourse.getDescription());
         course.setUrlImage(newCourse.getUrlImage());
 
-        mapCourses.put(id, course);
+        //mapCourses.put(id, course);
         return newCourse;
     }
 
@@ -55,15 +54,15 @@ public class CourseService {
             Course c = entry.getValue();
             if (id == c.getId()){
                 forumService.deleteForum(mapCourses.get(id).getFk_forum());
-                List<User> list = userService.getUserListOfACourse(id);
-                for (int i = 0; i < list.size(); i++) {
-                    for (int j = 0; j < list.get(i).getEnrolledCourses().size(); j++) {
-                        if ((list.get(i).getEnrolledCourses().get(j).getId()) == id) {
-                            list.get(i).getEnrolledCourses().remove(j);
-                        }
+                mapCourses.remove(id);
+                Collection<User> users = userService.getAll();
+                Iterator<User> iterator = users.iterator();
+                while (iterator.hasNext()) {
+                    User u = iterator.next();
+                    if(u.getEnrolledCourses().contains(c)) {
+                        u.getEnrolledCourses().remove(c);
                     }
                 }
-                mapCourses.remove(id);
                 return c;
             }
         }

@@ -1,9 +1,6 @@
 package es.ssdd.academia.controllers;
 
 import es.ssdd.academia.entities.Comment;
-import es.ssdd.academia.entities.Forum;
-import es.ssdd.academia.entities.User;
-import es.ssdd.academia.services.CommentService;
 import es.ssdd.academia.services.CourseService;
 import es.ssdd.academia.entities.Course;
 import es.ssdd.academia.services.ForumService;
@@ -14,10 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
 import java.util.Collection;
 
-
+@RequestMapping("/courses")
 @Controller
 public class CourseController {
 
@@ -54,7 +50,7 @@ public class CourseController {
                 "https://concepto.de/wp-content/uploads/2018/09/excel3-e1537469723415.jpg");
 
         Course course3 = new Course("Cloud Computing: herramientas en la nube", "5 euros", "2 horas",
-                "El Cloud Computing, más conocido como “la nube”, es una tecnología que permite utilizar diferentes servicios "
+                "El Cloud Computing, más conocido como 'la nube', es una tecnología que permite utilizar diferentes servicios "
                         + "como el almacenamiento de archivos, uso de aplicaciones o la conexión de dispositivos, todo ello sin ocupar "
                         + "espacio en el disco duro de nuestro ordenador, está alojado en servidores remotos. Herramientas que se tratan "
                         + "en este curso son: Google Drive, Evernote, Dropbox.",
@@ -79,25 +75,25 @@ public class CourseController {
         courseService.createCourse(course4);
     }
 
-    @GetMapping("/courses/")        //courses list
+    @GetMapping("/")        //courses list
     public String getAll(Model model) {
         model.addAttribute("courses", courseService.getAll());
         return "listCourses";
     }
     @GetMapping("/addCourse/")      //Show form of add course
-    public String addCourse(Model model) {
-        model.addAttribute("title", "FORMULARIO NUEVO CURSO");
+    public String addCourse() {
         return "newCourse";
     }
-    @PostMapping("/courses/")       //Save course
+    @PostMapping("/")       //Save course
     public String createCourse(Model model, @RequestParam String title, @RequestParam String price,
                                @RequestParam String description, @RequestParam String duration, @RequestParam String image) {
+
         courseService.createCourse(new Course(title, price, duration, description, image));
         model.addAttribute("courses", courseService.getAll());
         return "listCourses";
     }
 
-    @GetMapping("/courses/{id}/")       //just one course
+    @GetMapping("/{id}/")       //just one course
     public String getOne(Model model, @PathVariable long id) {
         Course course = courseService.getOne(id);
         model.addAttribute("course", course);
@@ -106,13 +102,13 @@ public class CourseController {
         return "course";
     }
 
-    @GetMapping("/courses/{id}/edit/")      //Put course
+    @GetMapping("/{id}/edit/")      //Put course
     public String updateCourse(Model model, @PathVariable long id) {
         model.addAttribute("course", courseService.getOne(id));
         return "updateCourse";
     }
 
-    @PostMapping("/courses/{id}/edit/")     //Save modified course
+    @PostMapping("/{id}/edit/")     //Save modified course
     public String updateCourse(Model model, @PathVariable long id, @RequestParam String title, @RequestParam String price,
                                 @RequestParam String description, @RequestParam String duration, @RequestParam String image) {
 
@@ -121,8 +117,8 @@ public class CourseController {
         return "redirect:/courses/{id}/";
     }
 
-    @GetMapping("/courses/{id}/delete/")    //Delete course
-    public String deleteCourse(@PathVariable int id) {
+    @GetMapping("/{id}/delete/")    //Delete course
+    public String deleteCourse(@PathVariable long id) {
         courseService.deleteCourse(id);
         return "redirect:/courses/";
     }

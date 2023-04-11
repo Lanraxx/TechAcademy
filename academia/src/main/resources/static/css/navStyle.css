@@ -6,6 +6,9 @@
     color: #FFFFFF;
     font-size: 20px;
 }
+#imageFrontPage {
+    height: 75px;
+}
 
 #aboutUs{
     color: #FFFFFF;
@@ -43,4 +46,17 @@ ul{                     /*Quitar los puntos de una lista*/
 
 .pointsend {
     font-size: 12px;
+}
+
+#lowerLogo {
+    height: 150px;
+}
+#instaIcon {
+    height: 50px;
+}
+#twitterIcon {
+    height: 50px;
+}
+#facebookIcon {
+    height: 40px;
 }

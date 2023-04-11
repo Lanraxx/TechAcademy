@@ -14,10 +14,11 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @Service
 public class ForumService {
-    private Map<Long, Forum> forumMap = new ConcurrentHashMap<Long, Forum>();
-    private AtomicLong id = new AtomicLong();
     @Autowired
     CommentService commentService;
+
+    private Map<Long, Forum> forumMap = new ConcurrentHashMap<Long, Forum>();
+    private AtomicLong id = new AtomicLong();
 
     public Forum createForum(Forum forum){
         long tem = id.incrementAndGet();
