@@ -122,10 +122,10 @@ public class UserController {
 
     @PostMapping("/{id}/editUser")
     public String updateUser(@PathVariable long id, @RequestParam String username, @RequestParam String email,
-                             @RequestParam String password, @RequestParam(name="selectObjects", required = false) List<Long> selectObjects) {
+                             @RequestParam String password, @RequestParam(name="selectedObjects", required = false) List<Long> selectedObjects) {
 
         List<Course> selectCourses = new ArrayList<>();
-        for(Long idCheckbox : selectObjects) {
+        for(Long idCheckbox : selectedObjects) {
             selectCourses.add(courseService.getOne(idCheckbox));
             if (!(courseService.getOne(idCheckbox).getUserList().contains(userService.getOne(id)))) {
                 courseService.getOne(idCheckbox).getUserList().add(userService.getOne(id));
