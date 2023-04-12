@@ -11,7 +11,7 @@
   display: none;
 }
 
-/* parámetros para configurar las pestañas */
+/* tab settings */
 :root {
   //--tabs-border-color: #ABCDEF;
   --tabs-border-color: #012345;
@@ -23,7 +23,7 @@
   --tabs-height: 40px;
 }
 
-/* aspecto básico */
+/* basic style */
 body {
   font-family: sans-serif;
   line-height: 1.2;
@@ -32,17 +32,18 @@ h2, p {
   margin: 0;
 }
 .tabs a {
-  color: #BB69E8;
   text-decoration: none;
+  color: #BB69E8;
 }
+
 .tabs * {
   box-sizing: border-box;
 }
 
-/* esto es para posicionar las pestañas correctamente */
+/* tab position */
 .tab-container {
   position: relative;
-  padding-top: var(--tabs-height); /* en esta zona colocaremos las pestañas */
+  padding-top: var(--tabs-height);
 }
 #tab1>a { --tabs-position: 0; }
 #tab2>a { --tabs-position: 1; }
@@ -52,10 +53,10 @@ h2, p {
   width: calc(var(--tabs-width));
   height: calc(var(--tabs-height) + var(--tabs-border-size));
   top: 0;
-  left: calc(var(--tabs-width) * var(--tabs-position)); /* posición de cada pestaña */
+  left: calc(var(--tabs-width) * var(--tabs-position));
 }
 
-/* más aspecto */
+/* more style */
 .tabs {
   padding: 10px;
   color: var(--tabs-text-color);
