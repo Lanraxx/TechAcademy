@@ -10,7 +10,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Service
@@ -18,7 +17,7 @@ public class ForumService {
 
     @Autowired
     CommentService commentService;
-    private Map<Long, Forum> forumMap = new ConcurrentHashMap<Long, Forum>();
+    private Map<Long, Forum> forumMap = new ConcurrentHashMap<>();
     private AtomicLong id = new AtomicLong();
 
 
