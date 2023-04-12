@@ -56,7 +56,7 @@
 
             <form action="/courses/{{course.id}}/editComment/{{comment.id}}/" method="post">
               <p>Autor: </p>
-              <input type='text' name='author'/>
+              <input type='text' name='author' value="{{comment.author}}/>
               <p>Comentario:</p>
               <textarea name='newComment' rows=10 cols=40>{{comment.comment}}</textarea>
               <input type='submit' value='Publicar'/>
