@@ -2,6 +2,10 @@
     background: #000000;
 }
 
+#navbarDropdown{
+    color: #FFFFFF;
+    font-size: 20px;
+}
 #imageFrontPage {
     height: 75px;
 }
@@ -32,11 +36,7 @@ footer {
     color:white;
 }
 
-#lowerLogo {
-    height: 150px;
-}
-
-.list{                     /*Quitar los puntos de una lista*/
+ul{
     list-style: none;
 }
 
@@ -46,4 +46,17 @@ footer {
 
 .pointsend {
     font-size: 12px;
+}
+
+#lowerLogo {
+    height: 150px;
+}
+#instaIcon {
+    height: 50px;
+}
+#twitterIcon {
+    height: 50px;
+}
+#facebookIcon {
+    height: 40px;
 }

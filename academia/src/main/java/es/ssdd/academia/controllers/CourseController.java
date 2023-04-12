@@ -34,11 +34,7 @@ public class CourseController {
                         + "Como curiosidad, te podemos contar que se trata de un sistema que se creó en 1995 y que tenía como "
                         + "objetivo ser un lenguaje de programación de estructura sencilla y que pudiese ser ejecutado en todos "
                         + "los sistemas operativos posibles. Java sigue siendo, tras más de 20 años en el mercado, "
-                        + "uno de los lenguajes de programación más usados del mundo. "
-                        + "Son muchas las empresas que lo emplean para el desarrollo de tecnologías y aplicaciones en todo "
-                        + "tipo de sistemas y dispositivos. Sin embargo, la cantidad de profesionales especializados en Java "
-                        + "no ha crecido al mismo ritmo que su uso, por lo que los programadores y desarrolladores Java son "
-                        + "perfiles muy cotizados.",
+                        + "uno de los lenguajes de programación más usados del mundo. ",
                 "https://www.oracle.com/oce/press/assets/CONT2F6AE229113D42EC9C59FAED5BAA0380/native/og-social-java-logo.gif");
 
         Course course2 = new Course("Excel II", "10 euros", "1 hora y 30 minutos",

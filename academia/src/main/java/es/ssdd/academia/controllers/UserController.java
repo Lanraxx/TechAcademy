@@ -27,12 +27,12 @@ public class UserController {
         List<User> course2List = courseService.getOne(2).getUserList();
         List<User> course3List = courseService.getOne(3).getUserList();
 
-        User u1 = new User("Nico", "nrodriguezu@gmail.com", "xxxxx");
-        User u2 = new User("Marta", "mmrtta@yahoo.es", "1234");
-        User u3 = new User("Alvaro", "alpasc8@gmail.com", "2905");
+        User u1 = new User("Nico", "nrodriguezu@gmail.com", "xxxxxx");
+        User u2 = new User("Marta", "mmrtta@yahoo.es", "123456");
+        User u3 = new User("Álvaro", "alpasc8@gmail.com", "290576");
         User u4 = new User("Jiajie", "djjj@yahoo.es", "jiajie");
-        User u5 = new User("Gonzalo", "gonzarico@gamil.com", "9090");
-        User u6 = new User("Juan Manuel", "jmanuelc@gmail.com", "jnmnl");
+        User u5 = new User("Gonzalo", "gonzarico@gmail.com", "909090");
+        User u6 = new User("Juan Manuel", "jmanuelc@gmail.com", "jnmnl6");
 
         //Add users to course1
         course1List.add(u1);

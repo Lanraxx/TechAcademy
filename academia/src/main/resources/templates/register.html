@@ -5,12 +5,14 @@
   <link type="text/css" rel="stylesheet" href="/css/registerStyle.css"/>
   <link type="text/css" rel="stylesheet" href="/css/button.css"/>
 
+  <script src="/javaScript/validation.js"></script>
+
   <title>Tech Academy</title>
 </head>
 <body>
 
   <div class="box">
-    <form action="/users/" method="post">
+    <form action="/users/" method="post" onsubmit="return validation()">
       <h2>Registrarse</h2>
       <div class="inputBox">
         <input type="text" required="required" name="username">
@@ -23,7 +25,7 @@
         <i></i>
       </div>
       <div class="inputBox">
-        <input type="password" required="required" name="password">
+        <input type="password" required="required" name="password" minlength="6">
         <span>Contraseña</span>
         <i></i>
       </div>
