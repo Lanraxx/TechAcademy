@@ -2,10 +2,7 @@
     background: #000000;
 }
 
-#navbarDropdown{
-    color: #FFFFFF;
-    font-size: 20px;
-}
+
 #imageFrontPage {
     height: 75px;
 }
@@ -36,7 +33,7 @@ footer {
     color:white;
 }
 
-ul{
+.list{                  
     list-style: none;
 }
 
