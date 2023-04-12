@@ -48,7 +48,6 @@ public class CourseService {
         course.setDescription(newCourse.getDescription());
         course.setUrlImage(newCourse.getUrlImage());
 
-        //mapCourses.put(id, course);
         return newCourse;
     }
 
