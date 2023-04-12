@@ -59,9 +59,9 @@
                 <p>Username: </p>
                 <input type='text' name='username' value="{{user.username}}"/>
                 <p>Email:</p>
-                <input type='text' name='email' required value="{{user.email}}"/>
+                <input type='text' name='email' value="{{user.email}}" required/>
                 <p>Password: </p>
-                <input type='text' name='password' minlength="6" required value="{{user.password}}">
+                <input type='text' name='password' minlength="6" value="{{user.password}}" required>
                 <ul>
                   {{#courses}}
                   <li>

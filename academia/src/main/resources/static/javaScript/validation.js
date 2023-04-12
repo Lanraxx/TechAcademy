@@ -2,7 +2,7 @@ function validation() {
   var email = document.getElementsByName("email")[0].value;
   var password = document.getElementsByName("password")[0].value;
   if (!email.includes("@")) {
-    alert("Correo electrónico inválido");
+    alert("Correo electronico invalido");
     return false;
   }
   if (password.length < 6) {
