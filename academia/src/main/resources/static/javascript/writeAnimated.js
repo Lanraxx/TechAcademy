@@ -1,8 +1,8 @@
 var words = ["Office", "Seguridad", "Programacion"];
 var auxWord = 0;
 var auxLetter = 0;
-var speed = 100; // Velocidad de escritura en milisegundos
-var durationWord = 2000; // Duración de cada palabra en milisegundos
+var speed = 100; 			// Speed of write
+var durationWord = 2000; 	// Duration of each word
 var topic = document.getElementById("topic");
 
 function write() {
