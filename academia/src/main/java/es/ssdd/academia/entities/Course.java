@@ -24,7 +24,7 @@ public class Course {
     @JsonView(BasicCourse.class)
     private long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    //@OneToOne(cascade = CascadeType.ALL)
     @JsonView(BasicCourse.class)
     private long fk_forum;
     @JsonView(BasicCourse.class)
