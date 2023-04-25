@@ -16,6 +16,7 @@ public class ForumController {
 
     @Autowired
     ForumService forumService;
+
     @Autowired
     CourseService courseService;
 

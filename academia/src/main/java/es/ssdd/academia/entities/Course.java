@@ -5,9 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,8 +19,12 @@ public class Course {
 
     public interface Users{}
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @JsonView(BasicCourse.class)
     private long id;
+
+    @OneToOne(cascade = CascadeType.ALL)
     @JsonView(BasicCourse.class)
     private long fk_forum;
     @JsonView(BasicCourse.class)
@@ -31,6 +37,7 @@ public class Course {
     private String description;
     @JsonView(BasicCourse.class)
     private String urlImage;
+    @ManyToMany
     @JsonView(Users.class)
     private List<User> userList = new ArrayList<>();
 
