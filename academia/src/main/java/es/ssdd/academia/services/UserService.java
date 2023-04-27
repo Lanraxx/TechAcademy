@@ -1,6 +1,5 @@
 package es.ssdd.academia.services;
 
-import es.ssdd.academia.entities.Course;
 import es.ssdd.academia.entities.User;
 import es.ssdd.academia.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

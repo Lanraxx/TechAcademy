@@ -14,6 +14,7 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "users")
 public class User {
 
     public interface BasicUser{}
@@ -29,7 +30,7 @@ public class User {
     private String email;
     @JsonView(BasicUser.class)
     private String password;
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.MERGE})
     @JsonView(Courses.class)
     private List<Course> enrolledCourses = new ArrayList<>();
 
