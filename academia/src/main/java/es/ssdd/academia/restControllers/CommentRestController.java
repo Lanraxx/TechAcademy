@@ -41,7 +41,7 @@ public class CommentRestController {
         Comment tempComment = commentService.getOne(id);
         if (tempComment != null) {
             commentService.modifyComment(id, comment);
-            return new ResponseEntity<>(comment, HttpStatus.OK);
+            return new ResponseEntity<>(tempComment, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

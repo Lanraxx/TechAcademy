@@ -5,18 +5,19 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Course {
-
     public interface BasicCourse{}
-
     public interface Users{}
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @JsonView(BasicCourse.class)
     private long id;
     @JsonView(BasicCourse.class)
@@ -27,10 +28,12 @@ public class Course {
     private String price;
     @JsonView(BasicCourse.class)
     private String duration;
+    @Column(length = 10000)
     @JsonView(BasicCourse.class)
     private String description;
     @JsonView(BasicCourse.class)
     private String urlImage;
+    @ManyToMany(mappedBy = "enrolledCourses", cascade = {CascadeType.MERGE}, fetch = FetchType.EAGER)
     @JsonView(Users.class)
     private List<User> userList = new ArrayList<>();
 

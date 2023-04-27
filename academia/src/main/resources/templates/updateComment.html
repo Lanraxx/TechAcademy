@@ -16,7 +16,7 @@
       kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </head>
 <body>
-
+<!-- NAVBAR -->
 <nav class="navbar navbar-expand-md" id="navigation">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -56,7 +56,7 @@
 
             <form action="/courses/{{course.id}}/editComment/{{comment.id}}/" method="post">
               <p>Autor: </p>
-              <input type='text' name='author' value="{{comment.author}}/>
+              <input type='text' name='author' value="{{comment.author}}"/>
               <p>Comentario:</p>
               <textarea name='newComment' rows=10 cols=40>{{comment.comment}}</textarea>
               <input type='submit' value='Publicar'/>
@@ -74,7 +74,7 @@
     <section>
       <div class="row">
         <div class="col-lg-3 col-md-6">
-          <img src="/images/logo.png" id="lowerLogo">
+          <a href="/"><img src="/images/logo.png" id="lowerLogo"></a>
         </div>
         <div class="col-lg-3 col-md-6">
           <ul class="list">
@@ -83,11 +83,11 @@
             <li class="pointsend">Telefono: +34639528417</li>
           </ul>
         </div>
-        <div class="col-lg-3 col-md-6">     
+        <div class="col-lg-3 col-md-6">
           <ul class="list">
             <li class="subtitlesend">Sobre la academia</li>
-            <li class="pointsend">Política de privacidad</li>
-            <li class="pointsend">Política de cookies</li>
+            <li class="pointsend">Politica de privacidad</li>
+            <li class="pointsend">Politica de cookies</li>
           </ul>
         </div>
         <div class="col-lg-3 col-md-6">

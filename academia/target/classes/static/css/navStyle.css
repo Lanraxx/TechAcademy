@@ -47,3 +47,13 @@ footer {
 .pointsend {
     font-size: 12px;
 }
+
+#instaIcon {
+    height: 50px;
+}
+#twitterIcon {
+    height: 50px;
+}
+#facebookIcon {
+    height: 40px;
+}

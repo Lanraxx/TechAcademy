@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Modificar usuario</title>
+  <meta charset="UTF-8">
+  <title>Modificar usuario</title>
 
-    <link type="text/css" rel="stylesheet" href="/css/stylesNewCourse.css">
-    <link type="text/css" rel="stylesheet" href="/css/navStyle.css"/>
-    <link type="text/css" rel="stylesheet" href="/css/button.css"/>
+  <link type="text/css" rel="stylesheet" href="/css/stylesNewCourse.css">
+  <link type="text/css" rel="stylesheet" href="/css/navStyle.css"/>
+  <link type="text/css" rel="stylesheet" href="/css/button.css"/>
 
-    <script src="/javaScript/validation.js"></script>
+  <script src="/javaScript/validation.js"></script>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-
         rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-
         cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-
         kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -46,38 +46,38 @@
 </nav>
 
 <section>
-    <div class="container px-5 my-5" >
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <div class="card border-0 rounded-3 shadow-lg">
-            <div class="card-body p-4">
-              <div class="text-center">
-                <div class="h1 fw-light">Modificar usuario con ID: {{user.id}}</div>
-              </div>
-
-              <form action="/users/{{id}}/editUser/" method="post" onsubmit="return validation()">
-                <p>Username: </p>
-                <input type='text' name='username' value="{{user.username}}"/>
-                <p>Email:</p>
-                <input type='text' name='email' value="{{user.email}}" required/>
-                <p>Password: </p>
-                <input type='text' name='password' minlength="6" value="{{user.password}}" required>
-                <ul>
-                  {{#courses}}
-                  <li>
-                    <label>{{title}}</label>
-                    <input type="checkbox" name="selectedObjects" value="{{id}}">
-                  </li>
-                  {{/courses}}
-                </ul>
-                <input type='submit' value='Guardar'/>
-              </form>
+  <div class="container px-5 my-5" >
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card border-0 rounded-3 shadow-lg">
+          <div class="card-body p-4">
+            <div class="text-center">
+              <div class="h1 fw-light">Modificar usuario con ID: {{user.id}}</div>
             </div>
+
+            <form action="/users/{{id}}/editUser/" method="post" onsubmit="return validation()">
+              <p>Username: </p>
+              <input type='text' name='username' value="{{user.username}}"/>
+              <p>Email:</p>
+              <input type='text' name='email' value="{{user.email}}" required/>
+              <p>Password: </p>
+              <input type='text' name='password' minlength="6" value="{{user.password}}" required>
+              <ul>
+                {{#courses}}
+                <li>
+                  <label>{{title}}</label>
+                  <input type="checkbox" name="selectedObjects" value="{{id}}">
+                </li>
+                {{/courses}}
+              </ul>
+              <input type='submit' value='Guardar'/>
+            </form>
           </div>
         </div>
       </div>
     </div>
-    <a href="/users/">Volver a cursos</a>
+  </div>
+  <a href="/users/">Volver a cursos</a>
 </section>
 
 <footer id="footer">
@@ -85,7 +85,7 @@
     <section>
       <div class="row">
         <div class="col-lg-3 col-md-6">
-          <img src="/images/logo.png" id="lowerLogo">
+          <a href="/"><img src="/images/logo.png" id="lowerLogo"></a>
         </div>
         <div class="col-lg-3 col-md-6">
           <ul class="list">

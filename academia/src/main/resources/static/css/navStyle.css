@@ -2,7 +2,6 @@
     background: #000000;
 }
 
-
 #imageFrontPage {
     height: 75px;
 }
@@ -33,7 +32,11 @@ footer {
     color:white;
 }
 
-.list{                  
+#lowerLogo {
+    height: 150px;
+}
+
+.list{                     /*Quitar los puntos de una lista*/
     list-style: none;
 }
 
@@ -45,9 +48,6 @@ footer {
     font-size: 12px;
 }
 
-#lowerLogo {
-    height: 150px;
-}
 #instaIcon {
     height: 50px;
 }

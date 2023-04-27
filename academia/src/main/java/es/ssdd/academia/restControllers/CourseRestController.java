@@ -57,7 +57,7 @@ public class CourseRestController {
         Course tempCourse = courseService.getOne(id);
         if (tempCourse != null) {
             courseService.modifyCourse(id, course);
-            return new ResponseEntity<>(course, HttpStatus.OK);
+            return new ResponseEntity<>(tempCourse, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

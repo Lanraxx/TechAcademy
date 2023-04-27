@@ -34,7 +34,7 @@
                         <a class="nav-link active" href="/courses/" id="courses" role="button">Cursos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/" id="aboutUs" role="button">Sobre nosotros</a>
+                        <a class="nav-link active" href="#footer" id="aboutUs" role="button">Sobre nosotros</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="/users/" id="users" role="button">Usuarios matriculados</a>
@@ -55,7 +55,7 @@
         </div>
     </header>
 
-    <script src="/javascript/writeAnimated.js"></script>
+    <script src="/javaScript/writeAnimated.js"></script>
 
     <br>
     <hr>
@@ -66,7 +66,7 @@
             {{#courses}}
             <div class="col-lg-6">
                 <div class="card">
-                    <a href="/courses/{{id}}/"><img class="card-img-top" src={{urlImage}}></a> <!--Preguntar comparacion laura-->
+                    <a href="/courses/{{id}}/"><img class="card-img-top" src={{urlImage}}></a>
                     <div class="card-body">
                         <h4 class="card-title">
                             <a href="/courses/{{id}}/">{{title}}</a>
@@ -96,7 +96,7 @@
             <section>
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
-                        <img src="/images/logo.png" id="lowerLogo">
+                        <a href="/"><img src="/images/logo.png" id="lowerLogo"></a>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <ul class="list">
@@ -105,7 +105,7 @@
                             <li class="pointsend">Telefono: +34639528417</li>
                         </ul>
                     </div>
-                    <div class="col-lg-3 col-md-6">     <!--col-md-6 es para verlo en teoria en movil--> <!--el 4 deja la separacion de columnas-->
+                    <div class="col-lg-3 col-md-6">
                         <ul class="list">
                             <li class="subtitlesend">Sobre la academia</li>
                             <li class="pointsend">Politica de privacidad</li>
@@ -118,13 +118,13 @@
                             <li>
                                 <div  class="row">
                                     <div class="col-lg-3 col-md-6">
-                                        <img src="/images/instagram_2.png" height="50">
+                                        <img src="/images/instagram_2.png" id="instaIcon">
                                     </div>
                                     <div class="col-lg-3 col-md-6">
-                                        <img src="/images/twitter_2.png" height="50">
+                                        <img src="/images/twitter_2.png" id="twitterIcon">
                                     </div>
                                     <div class="col-lg-3 col-md-6">
-                                        <img src="/images/facebook_2.png" height="40">
+                                        <img src="/images/facebook_2.png" id="facebookIcon">
                                     </div>
                                 </div>
                             </li>
