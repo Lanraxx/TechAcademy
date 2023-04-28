@@ -21,7 +21,7 @@ public class User {
 
     public interface Courses{}
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonView(BasicUser.class)
     private long id;
     @JsonView(BasicUser.class)

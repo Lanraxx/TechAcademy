@@ -33,9 +33,9 @@ public class CourseService {
         //course.setId(tem);
         //mapCourses.put(tem, course);
         courseRepository.save(course);
-        Forum forum = new Forum(course.getId());
+        Forum forum = new Forum();
         forumService.createForum(forum);
-        course.setFk_forum(forum.getId());
+        course.setForum(forum);
         return course;
     }
 
@@ -54,6 +54,10 @@ public class CourseService {
         }
         return null;
     }
+
+    /*public Course getByName(String name) {
+        return courseRepository.findByName(name);
+    }*/
 
     public Course modifyCourse (long id, Course newCourse) {
         //Course course = mapCourses.get(id);
@@ -102,7 +106,7 @@ public class CourseService {
         if (findCourse.isPresent()) {
             Course c = findCourse.get();
             courseRepository.delete(c);
-            forumService.deleteForum(c.getFk_forum());
+            //forumService.deleteForum(c.getFk_forum());
             Collection<User> users = userService.getAll();
             Iterator<User> iterator = users.iterator();
             while ((iterator.hasNext())){

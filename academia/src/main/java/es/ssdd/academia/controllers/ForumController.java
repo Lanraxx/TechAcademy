@@ -23,7 +23,7 @@ public class ForumController {
     @GetMapping("/{id}/deleteComments/")    //Delete all comments
     public String deleteComments(@PathVariable long id) {
         Course c = courseService.getOne(id);
-        forumService.deleteAllComments(c.getFk_forum());
+        forumService.deleteAllComments(c.getForum().getId());
         return "redirect:/courses/{id}/";
     }
 

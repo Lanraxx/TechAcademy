@@ -97,7 +97,7 @@ public class CourseController {
     public String getOne(Model model, @PathVariable long id) {
         Course course = courseService.getOne(id);
         model.addAttribute("course", course);
-        Collection<Comment> commentList = forumService.getComments(forumService.getOne(course.getFk_forum()));
+        Collection<Comment> commentList = forumService.getComments(course.getForum());
         model.addAttribute("comments", commentList);
         return "course";
     }

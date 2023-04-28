@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -12,13 +14,16 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class Forum {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @OneToMany(cascade = {CascadeType.ALL})
+    List<Comment> commentList = new ArrayList<>();
+
     //@OneToOne(cascade = CascadeType.ALL)
-    private long fk_course;
+    /*private long fk_course;
 
     public Forum (long fk_course) {
         this.fk_course = fk_course;
-    }
+    }*/
 }

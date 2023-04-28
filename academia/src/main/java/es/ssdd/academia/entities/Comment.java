@@ -15,11 +15,11 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class Comment {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String comment;
     private String author;
-    private long fk_forum;
+    //private long fk_forum;
 
     public Comment(String comment, String author) {
         this.author = author;

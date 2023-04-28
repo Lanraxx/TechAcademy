@@ -23,19 +23,19 @@ public class CommentController {
     @PostConstruct
     public void CommentController () {
         Comment comment1 = new Comment("Muy buen curso.", "Nico");
-        comment1.setFk_forum(1);
+        //comment1.setFk_forum(1);
         commentService.createComment(comment1);
 
         Comment comment2 = new Comment("No me ha gustado, muy mal explicado.", "Maria Antonieta");
-        comment2.setFk_forum(2);
+        //comment2.setFk_forum(2);
         commentService.createComment(comment2);
 
         Comment comment3 = new Comment("Curso súper útil y muy detallado, esencial para los principiantes.", "Sebastian");
-        comment3.setFk_forum(3);
+        //comment3.setFk_forum(3);
         commentService.createComment(comment3);
 
         Comment comment4 = new Comment("Como introducción no está mal pero podría mejorarse.", "Esther");
-        comment4.setFk_forum(1);
+        //comment4.setFk_forum(1);
         commentService.createComment(comment4);
     }
 
@@ -48,7 +48,7 @@ public class CommentController {
     public String addComment(@PathVariable long id, @RequestParam String newComment, @RequestParam String author) {
         Course c = courseService.getOne(id);
         Comment comment = new Comment(newComment, author);
-        comment.setFk_forum(c.getFk_forum());
+        //comment.setFk_forum(c.getFk_forum());
         commentService.createComment(comment);
         return "redirect:/courses/{id}/";
     }
