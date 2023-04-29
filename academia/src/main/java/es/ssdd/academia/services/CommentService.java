@@ -73,10 +73,9 @@ public class CommentService {
         //Comment comment = mapComments.get(id);
         Optional<Comment> findComment = commentRepository.findById(id);
         if (findComment.isPresent()) {
-            Comment comment = findComment.get();
-            comment.setComment(newComment.getComment());
-            comment.setAuthor(newComment.getAuthor());
-            return comment;
+            newComment.setId(id);
+            commentRepository.save(newComment);
+            return newComment;
         }
         /*
         comment.setComment(newComment.getComment());

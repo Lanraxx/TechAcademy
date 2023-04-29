@@ -60,25 +60,13 @@ public class CourseService {
     }*/
 
     public Course modifyCourse (long id, Course newCourse) {
-        //Course course = mapCourses.get(id);
         Optional<Course> findCourse = courseRepository.findById(id);
-        if(findCourse.isPresent()) {
-            Course course = findCourse.get();
-
-            course.setTitle(newCourse.getTitle());
-            course.setPrice(newCourse.getPrice());
-            course.setDuration(newCourse.getDuration());
-            course.setDescription(newCourse.getDescription());
-            course.setUrlImage(newCourse.getUrlImage());
+        if (findCourse.isPresent()) {
+            newCourse.setId(id);
+            courseRepository.save(newCourse);
+            return newCourse;
         }
-
-        /*course.setTitle(newCourse.getTitle());
-        course.setPrice(newCourse.getPrice());
-        course.setDuration(newCourse.getDuration());
-        course.setDescription(newCourse.getDescription());
-        course.setUrlImage(newCourse.getUrlImage());*/
-
-        return newCourse;
+        return null;
     }
 
     /*public Course deleteCourse(long id) {

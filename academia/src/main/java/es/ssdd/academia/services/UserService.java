@@ -100,15 +100,11 @@ public class UserService {
     public User modifyUser(long id, User newUser) {
         Optional<User> findUser = userRepository.findById(id);
         if(findUser.isPresent()) {
-            User user = findUser.get();
-
-            user.setUsername(newUser.getUsername());
-            user.setEmail(newUser.getEmail());
-            user.setPassword(newUser.getPassword());
-            user.setEnrolledCourses(newUser.getEnrolledCourses());
+            newUser.setId(id);
+            userRepository.save(newUser);
+            return newUser;
         }
-
-        return newUser;
+        return null;
     }
 
 }
