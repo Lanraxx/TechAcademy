@@ -32,10 +32,10 @@ public class CourseService {
         //long tem = id.incrementAndGet();
         //course.setId(tem);
         //mapCourses.put(tem, course);
-        courseRepository.save(course);
         Forum forum = new Forum();
         forumService.createForum(forum);
         course.setForum(forum);
+        courseRepository.save(course);
         return course;
     }
 

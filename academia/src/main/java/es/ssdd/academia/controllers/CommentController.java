@@ -4,6 +4,7 @@ import es.ssdd.academia.entities.Comment;
 import es.ssdd.academia.entities.Course;
 import es.ssdd.academia.services.CommentService;
 import es.ssdd.academia.services.CourseService;
+import es.ssdd.academia.services.ForumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,8 @@ public class CommentController {
     CommentService commentService;
     @Autowired
     CourseService courseService;
+    @Autowired
+    ForumService forumService;
 
 
     @PostConstruct
@@ -25,18 +28,22 @@ public class CommentController {
         Comment comment1 = new Comment("Muy buen curso.", "Nico");
         //comment1.setFk_forum(1);
         commentService.createComment(comment1);
+        forumService.getOne(1).getCommentList().add(comment1);
 
         Comment comment2 = new Comment("No me ha gustado, muy mal explicado.", "Maria Antonieta");
         //comment2.setFk_forum(2);
         commentService.createComment(comment2);
+        forumService.getOne(2).getCommentList().add(comment2);
 
         Comment comment3 = new Comment("Curso súper útil y muy detallado, esencial para los principiantes.", "Sebastian");
         //comment3.setFk_forum(3);
         commentService.createComment(comment3);
+        forumService.getOne(3).getCommentList().add(comment3);
 
         Comment comment4 = new Comment("Como introducción no está mal pero podría mejorarse.", "Esther");
         //comment4.setFk_forum(1);
         commentService.createComment(comment4);
+        forumService.getOne(1).getCommentList().add(comment4);
     }
 
     @GetMapping("/{id}/addComment/")

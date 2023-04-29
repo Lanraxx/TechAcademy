@@ -44,7 +44,6 @@ public class ForumService {
         } else {
             return null;
         }
-
     }
 
     /*public Forum deleteForum(long id) {
@@ -60,7 +59,9 @@ public class ForumService {
                 commentList.add(comment);
         }
         return commentList;*/
+
         return forum.getCommentList();
+
     }
 
     public Forum deleteAllComments(long idForum) {
