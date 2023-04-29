@@ -20,7 +20,7 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonView(BasicCourse.class)
     private long id;
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     @JsonView(BasicCourse.class)
     private Forum forum;
     @JsonView(BasicCourse.class)

@@ -33,7 +33,7 @@ public class CourseService {
         //course.setId(tem);
         //mapCourses.put(tem, course);
         Forum forum = new Forum();
-        forumService.createForum(forum);
+        //forumService.createForum(forum);
         course.setForum(forum);
         courseRepository.save(course);
         return course;
