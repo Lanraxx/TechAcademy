@@ -6,6 +6,7 @@ import es.ssdd.academia.services.CourseService;
 import es.ssdd.academia.services.ForumService;
 import es.ssdd.academia.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.PostConstruct;
 import java.util.Collection;
 
-
+@Order(1)
 @Controller
 @RequestMapping("/courses")
 public class CourseController {

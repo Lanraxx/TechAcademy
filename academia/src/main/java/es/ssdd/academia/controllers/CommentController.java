@@ -6,12 +6,14 @@ import es.ssdd.academia.services.CommentService;
 import es.ssdd.academia.services.CourseService;
 import es.ssdd.academia.services.ForumService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 
+@Order(2)
 @Controller
 @RequestMapping("/courses")
 public class CommentController {
@@ -31,17 +33,17 @@ public class CommentController {
         //forumService.getOne(1).getCommentList().add(comment1);
 
         Comment comment2 = new Comment("No me ha gustado, muy mal explicado.", "Maria Antonieta");
-        //comment2.setFk_forum(2);
+        comment2.setForum(forumService.getOne(2));
         commentService.createComment(comment2);
         //forumService.getOne(2).getCommentList().add(comment2);
 
         Comment comment3 = new Comment("Curso súper útil y muy detallado, esencial para los principiantes.", "Sebastian");
-        //comment3.setFk_forum(3);
+        comment3.setForum(forumService.getOne(3));
         commentService.createComment(comment3);
         //forumService.getOne(3).getCommentList().add(comment3);
 
         Comment comment4 = new Comment("Como introducción no está mal pero podría mejorarse.", "Esther");
-        //comment4.setFk_forum(1);
+        comment4.setForum(forumService.getOne(1));
         commentService.createComment(comment4);
         //forumService.getOne(1).getCommentList().add(comment4);
     }

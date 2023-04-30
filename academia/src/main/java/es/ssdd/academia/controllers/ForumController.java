@@ -4,12 +4,13 @@ import es.ssdd.academia.entities.Course;
 import es.ssdd.academia.services.CourseService;
 import es.ssdd.academia.services.ForumService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
+@Order(4)
 @Controller
 @RequestMapping("/courses")
 public class ForumController {

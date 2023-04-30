@@ -5,6 +5,7 @@ import es.ssdd.academia.entities.User;
 import es.ssdd.academia.services.CourseService;
 import es.ssdd.academia.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
+@Order(3)
 @Controller
 @RequestMapping("/users")
 public class UserController {

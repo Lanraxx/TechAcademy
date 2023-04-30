@@ -1,6 +1,8 @@
 package es.ssdd.academia.restControllers;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import es.ssdd.academia.entities.Comment;
+import es.ssdd.academia.entities.User;
 import es.ssdd.academia.services.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,12 +15,13 @@ public class CommentRestController {
     @Autowired
     CommentService commentService;
 
+    @JsonView(Comment.BasicComment.class)
     @GetMapping("/")
     public ResponseEntity getAllComments() {
         return new ResponseEntity<>(commentService.getAll(), HttpStatus.OK);
     }
 
-
+    @JsonView(Comment.BasicComment.class)
     @GetMapping("/{id}/")
     public ResponseEntity<Comment> getComment(@PathVariable long id) {
         Comment tempComment = commentService.getOne(id);

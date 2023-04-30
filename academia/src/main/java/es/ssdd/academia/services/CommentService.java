@@ -75,6 +75,7 @@ public class CommentService {
         Optional<Comment> findComment = commentRepository.findById(id);
         if (findComment.isPresent()) {
             newComment.setId(id);
+            newComment.setForum(findComment.get().getForum());
             commentRepository.save(newComment);
             return newComment;
         }
