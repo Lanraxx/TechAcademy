@@ -26,7 +26,7 @@ public class CommentController {
     @PostConstruct
     public void CommentController () {
         Comment comment1 = new Comment("Muy buen curso.", "Nico");
-        //comment1.setFk_forum(1);
+        comment1.setForum(forumService.getOne(1));
         commentService.createComment(comment1);
         //forumService.getOne(1).getCommentList().add(comment1);
 
@@ -56,6 +56,7 @@ public class CommentController {
         Course c = courseService.getOne(id);
         Comment comment = new Comment(newComment, author);
         //comment.setFk_forum(c.getFk_forum());
+        comment.setForum(c.getForum());
         commentService.createComment(comment);
         return "redirect:/courses/{id}/";
     }

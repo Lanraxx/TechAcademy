@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -19,7 +16,8 @@ public class Comment {
     private long id;
     private String comment;
     private String author;
-    //private long fk_forum;
+    @ManyToOne
+    private Forum forum;
 
     public Comment(String comment, String author) {
         this.author = author;

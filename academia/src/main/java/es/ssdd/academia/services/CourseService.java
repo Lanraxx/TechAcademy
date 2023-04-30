@@ -62,6 +62,7 @@ public class CourseService {
     public Course modifyCourse (long id, Course newCourse) {
         Optional<Course> findCourse = courseRepository.findById(id);
         if (findCourse.isPresent()) {
+            newCourse.setForum(findCourse.get().getForum());
             newCourse.setId(id);
             courseRepository.save(newCourse);
             return newCourse;

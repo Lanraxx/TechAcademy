@@ -17,7 +17,7 @@ public class Forum {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @OneToMany(cascade = {CascadeType.ALL})
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "forum")
     List<Comment> commentList = new ArrayList<>();
 
     //@OneToOne(cascade = CascadeType.ALL)

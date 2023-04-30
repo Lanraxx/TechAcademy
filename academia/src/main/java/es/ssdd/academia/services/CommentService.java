@@ -1,6 +1,7 @@
 package es.ssdd.academia.services;
 
 import es.ssdd.academia.entities.Comment;
+import es.ssdd.academia.entities.Forum;
 import es.ssdd.academia.repositories.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
