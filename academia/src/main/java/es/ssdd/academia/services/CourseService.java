@@ -94,7 +94,6 @@ public class CourseService {
         Optional<Course> findCourse = courseRepository.findById(id);
         if (findCourse.isPresent()) {
             Course c = findCourse.get();
-            courseRepository.delete(c);
             //forumService.deleteForum(c.getFk_forum());
             Collection<User> users = userService.getAll();
             Iterator<User> iterator = users.iterator();
@@ -104,6 +103,7 @@ public class CourseService {
                     u.getEnrolledCourses().remove(c);
                 }
             }
+            courseRepository.delete(c);
             return c;
         }
         return null;

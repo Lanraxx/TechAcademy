@@ -15,6 +15,8 @@ public class ForumService {
 
     @Autowired
     CommentService commentService;
+    @Autowired
+    CourseService courseService;
 
     @Autowired
     ForumRepository forumRepository;
@@ -68,10 +70,32 @@ public class ForumService {
         //commentService.deleteCommentsOfAForum(idForum);
         //return this.getOne(idForum);
 
+        /*
         List<Comment> comments = forumRepository.getById(idForum).getCommentList();
         for (int i = 0; i < comments.size(); i++) {
-            commentService.deleteComment(comments.remove(i).getId());
+            Comment c = comments.get(i);
+            commentService.deleteComment(c.getId());
         }
+        forumRepository.save(forumRepository.getById(idForum));
+
         return forumRepository.getById(idForum);
+
+         */
+
+
+        /*
+        Forum forum = forumRepository.findById(idForum).get();
+        forum.setCommentList(new ArrayList<>());
+        forumRepository.save(forum);
+
+        return forum;
+
+         */
+
+        forumRepository.delete(forumRepository.findById(idForum).get());
+        Forum forum = new Forum();
+        forum.setId(idForum);
+        courseService.getOne(idForum).setForum(forum);
+        return forum;
     }
 }

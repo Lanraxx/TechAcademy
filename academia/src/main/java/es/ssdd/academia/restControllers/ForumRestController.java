@@ -34,11 +34,6 @@ public class ForumRestController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-    @JsonView(DetailsForum.class)
-    @GetMapping("/comments/{id}/")
-    public ResponseEntity getCommentsOfAForum(@PathVariable long id) {
-        return new ResponseEntity<>(forumService.getComments(forumService.getOne(id)), HttpStatus.OK);
-    }
 
     @JsonView(Forum.BasicForum.class)
     @DeleteMapping("/{id}/delete/")
