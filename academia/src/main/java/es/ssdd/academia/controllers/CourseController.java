@@ -76,27 +76,15 @@ public class CourseController {
 
     @GetMapping("/")                        //courses list
     public String getAll(Model model) {
-        /*
-        if (!checkbox) {
-            model.addAttribute("courses", courseService.getAll());
-        } else {
-            model.addAttribute("courses", courseService.freeCourses());
-        }
-
-         */
-
         model.addAttribute("courses", courseService.getAll());
-
         return "listCourses";
     }
 
-    @GetMapping("/filter/")
-    public String getFreeCourses(Model model) {
-        model.addAttribute("freeCourses", courseService.freeCourses());
-        return "listFreeCourses";
+    @PostMapping("/filter/")
+    public String someFilter(Model model, @RequestParam String filterPrice) {
+        model.addAttribute("courses", courseService.filterCourses(filterPrice));
+        return "listCourses";
     }
-
-
 
     @GetMapping("/addCourse/")                      //Show form of add course
     public String addCourse() {

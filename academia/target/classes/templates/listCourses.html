@@ -62,10 +62,18 @@
     <br>
 
     <div class="filter">
-        <p>Filtrar por cursos gratuitos:</p>
-        <a href="/courses/filter/"><button>Filtrar</button></a>
+        <form action="/courses/filter/" method="post">
+            <p>Filtrar por precio: </p>
+            <input type='text' name='filterPrice'/>
+            <input type='submit' value='Publicar'/>
+        </form>
+
+        <a href="/courses/"><button>Deshacer el filtro</button></a>
     </div>
 
+    <br>
+    <hr>
+    <br>
     <div class="container">
         <div class="row">
             {{#courses}}

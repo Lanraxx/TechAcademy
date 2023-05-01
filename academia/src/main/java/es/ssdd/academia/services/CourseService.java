@@ -147,7 +147,8 @@ public class CourseService {
 
      */
 
-    public List<Course> freeCourses() {
-        return courseRepository.findByPrice("Gratis");
+
+    public List<Course> filterCourses(String price) {
+        return courseRepository.findByPrice(price);
     }
 }
