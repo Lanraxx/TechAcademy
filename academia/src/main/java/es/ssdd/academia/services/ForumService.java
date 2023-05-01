@@ -68,39 +68,10 @@ public class ForumService {
         //commentService.deleteCommentsOfAForum(idForum);
         //return this.getOne(idForum);
 
-        /*
-        List<Comment> comments = forumRepository.getById(idForum).getCommentList();
-        for (int i = 0; i < comments.size(); i++) {
-            Comment c = comments.get(i);
-            commentService.deleteComment(c.getId());
+        List<Comment> comments = forumRepository.findById(idForum).get().getCommentList();
+        for (int i = comments.size(); i > 0; i--) {
+            commentService.deleteComment(comments.remove(i-1).getId());
         }
-        forumRepository.save(forumRepository.getById(idForum));
-
-        return forumRepository.getById(idForum);
-
-         */
-
-
-        /*
-        Forum forum = forumRepository.findById(idForum).get();
-        forum.setCommentList(new ArrayList<>());
-        forumRepository.save(forum);
-
-        return forum;
-
-         */
-
-        Optional<Forum> findForum = forumRepository.findById(idForum);
-        if (findForum.isPresent()) {
-            Forum forum = findForum.get();
-            List<Comment> comments = forum.getCommentList();
-            for (Comment comment : comments) {
-                commentService.deleteComment(comment.getId());
-            }
-            forum.getCommentList().clear();
-            forumRepository.save(forum);
-            return forum;
-        }
-        return null;
+        return forumRepository.findById(idForum).get();
     }
 }
