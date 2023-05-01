@@ -7,6 +7,8 @@ import es.ssdd.academia.repositories.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import java.util.*;
 
 @Service
@@ -15,7 +17,7 @@ public class CourseService {
     @Autowired
     UserService userService;
     @Autowired
-    ForumService forumService;
+    EntityManager entityManager;
 
     /*private Map<Long, Course> mapCourses = new ConcurrentHashMap<>();
     private AtomicLong id = new AtomicLong();*/
@@ -135,5 +137,17 @@ public class CourseService {
                 }
             }
         }
+    }
+
+    /*
+    public List<Course> freeCourses () {
+        TypedQuery<Course> q1 = entityManager.createQuery("SELECT c FROM Course c WHERE price='gratis'", Course.class);
+        return q1.getResultList();
+    }
+
+     */
+
+    public List<Course> freeCourses() {
+        return courseRepository.findByPrice("Gratis");
     }
 }
