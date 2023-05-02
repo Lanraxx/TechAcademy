@@ -54,18 +54,18 @@
                     <div id="tab2" class="tab">
                         <a class="link" href="#tab2">Foro</a>
                         <div class="tab-content">
-                            {{#comments}}
+                            {{#reviews}}
                             <div id="commentBox">
-                                <div id="comment">
+                                <div id="review">
                                     <h6><u>{{author}}</u></h6>
-                                    <p>{{comment}}</p>
+                                    <p>{{review}}</p>
                                 </div>
                                 <div class="buttons">
                                     <a href="/courses/{{course.id}}/editComment/{{id}}/"><button class="editComment">Editar comentario</button></a>
                                     <a href="/courses/{{course.id}}/deleteComment/{{id}}/"><button class="deleteComment">Eliminar comentario</button></a>
                                 </div>
                             </div>
-                            {{/comments}}
+                            {{/reviews}}
                             <div class="buttons">
                                 <a href="/courses/{{id}}/addComment/"><button class="addComment">Añadir comentario</button></a>
                                 <button class="deleteComments" id="submit2">Eliminar todos los comentarios</button>

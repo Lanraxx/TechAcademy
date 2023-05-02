@@ -13,12 +13,12 @@ import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Controller
 @RequestMapping("/users")
 public class UserController {
     @Autowired
     UserService userService;
-
     @Autowired
     CourseService courseService;
 

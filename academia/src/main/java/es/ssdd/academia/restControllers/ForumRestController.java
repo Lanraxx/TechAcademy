@@ -1,5 +1,7 @@
 package es.ssdd.academia.restControllers;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import es.ssdd.academia.entities.Review;
 import es.ssdd.academia.entities.Forum;
 import es.ssdd.academia.services.ForumService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,14 +12,17 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/forum")
 public class ForumRestController {
+    interface DetailsForum extends Forum.BasicForum, Forum.Comments, Review.BasicComment {}
     @Autowired
     ForumService forumService;
 
+    @JsonView(Forum.BasicForum.class)
     @GetMapping("/")
     public ResponseEntity getAll() {
         return new ResponseEntity<>(forumService.getAll(), HttpStatus.OK);
     }
 
+    @JsonView(DetailsForum.class)
     @GetMapping("/{id}/")
     public ResponseEntity<Forum> getForum(@PathVariable long id) {
         Forum tempForum = forumService.getOne(id);
@@ -27,11 +32,8 @@ public class ForumRestController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-    @GetMapping("/comments/{id}/")
-    public ResponseEntity getCommentsOfAForum(@PathVariable long id) {
-        return new ResponseEntity<>(forumService.getComments(forumService.getOne(id)), HttpStatus.OK);
-    }
 
+    @JsonView(Forum.BasicForum.class)
     @DeleteMapping("/{id}/delete/")
     public ResponseEntity<Forum> deleteForum(@PathVariable long id) {
         Forum tem = forumService.deleteAllComments(id);

@@ -1,6 +1,6 @@
 package es.ssdd.academia.controllers;
 
-import es.ssdd.academia.entities.Comment;
+import es.ssdd.academia.entities.Review;
 import es.ssdd.academia.entities.Course;
 import es.ssdd.academia.services.CourseService;
 import es.ssdd.academia.services.ForumService;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import java.util.Collection;
-
 
 @Controller
 @RequestMapping("/courses")
@@ -79,6 +78,12 @@ public class CourseController {
         return "listCourses";
     }
 
+    @PostMapping("/filter/")
+    public String someFilter(Model model, @RequestParam String filterPrice) {
+        model.addAttribute("courses", courseService.filterCourses(filterPrice));
+        return "listCourses";
+    }
+
     @GetMapping("/addCourse/")                      //Show form of add course
     public String addCourse() {
         return "newCourse";
@@ -97,8 +102,8 @@ public class CourseController {
     public String getOne(Model model, @PathVariable long id) {
         Course course = courseService.getOne(id);
         model.addAttribute("course", course);
-        Collection<Comment> commentList = forumService.getComments(forumService.getOne(course.getFk_forum()));
-        model.addAttribute("comments", commentList);
+        Collection<Review> reviewList = forumService.getComments(course.getForum());
+        model.addAttribute("comments", reviewList);
         return "course";
     }
 

@@ -21,6 +21,9 @@ courses {
     left: 90px;
     bottom:20px;
 }
+.filter {
+    background: linear-gradient(to bottom left, #3C71E3, 30%, #A937E7);
+}
 
 it {
     font-size:70px;

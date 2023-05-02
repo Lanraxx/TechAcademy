@@ -17,11 +17,12 @@ public class Course {
     public interface BasicCourse{}
     public interface Users{}
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonView(BasicCourse.class)
     private long id;
+    @OneToOne(cascade=CascadeType.ALL)
     @JsonView(BasicCourse.class)
-    private long fk_forum;
+    private Forum forum;
     @JsonView(BasicCourse.class)
     private String title;
     @JsonView(BasicCourse.class)
