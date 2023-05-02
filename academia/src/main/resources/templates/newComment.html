@@ -58,7 +58,7 @@
               <div class="h1 fw-light">Nuevo comentario</div>
             </div>
 
-            <form action="/courses/{{id}}/addComment/" method="post">
+            <form action="/courses/{{id}}/addComment/" method="post" id="myForm">
               <p>Autor: </p>
               <input type='text' name='author'/>
               <p>Comentario:</p>
@@ -78,9 +78,23 @@
 
 <script>
   var quill = new Quill('#editor', {
-  theme: 'snow'
-});
+    theme: 'snow'
+  });
 </script>
+
+<script>
+  var form = document.querySelector('#myForm');
+  var newReviewInput = document.querySelector('#newReview');
+
+  form.addEventListener('submit', function(event) {
+  event.preventDefault();
+  var content = quill.getContents();
+  newReviewInput.value = JSON.stringify(content);
+  form.submit();
+  });
+</script>
+
+
 
 
 <footer id="footer">
