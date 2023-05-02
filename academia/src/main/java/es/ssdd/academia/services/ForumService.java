@@ -1,20 +1,18 @@
 package es.ssdd.academia.services;
 
-import es.ssdd.academia.entities.Comment;
+import es.ssdd.academia.entities.Review;
 import es.ssdd.academia.entities.Forum;
 import es.ssdd.academia.repositories.ForumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicLong;
 
 @Service
 public class ForumService {
 
     @Autowired
-    CommentService commentService;
+    ReviewService reviewService;
 
     @Autowired
     ForumRepository forumRepository;
@@ -51,7 +49,7 @@ public class ForumService {
         return forumMap.remove(id);
     }*/
 
-    public Collection<Comment> getComments (Forum forum) {
+    public Collection<Review> getComments (Forum forum) {
         /*List<Comment> commentList = new ArrayList<>();
         for (Map.Entry<Long, Comment> entry : commentService.getMap().entrySet()) {
             Comment comment = entry.getValue();
@@ -60,7 +58,7 @@ public class ForumService {
         }
         return commentList;*/
 
-        return forum.getCommentList();
+        return forum.getReviewList();
 
     }
 
@@ -68,9 +66,9 @@ public class ForumService {
         //commentService.deleteCommentsOfAForum(idForum);
         //return this.getOne(idForum);
 
-        List<Comment> comments = forumRepository.findById(idForum).get().getCommentList();
-        for (int i = comments.size(); i > 0; i--) {
-            commentService.deleteComment(comments.remove(i-1).getId());
+        List<Review> reviews = forumRepository.findById(idForum).get().getReviewList();
+        for (int i = reviews.size(); i > 0; i--) {
+            reviewService.deleteComment(reviews.remove(i-1).getId());
         }
         return forumRepository.findById(idForum).get();
     }

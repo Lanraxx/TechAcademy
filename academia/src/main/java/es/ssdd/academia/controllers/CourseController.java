@@ -1,6 +1,6 @@
 package es.ssdd.academia.controllers;
 
-import es.ssdd.academia.entities.Comment;
+import es.ssdd.academia.entities.Review;
 import es.ssdd.academia.entities.Course;
 import es.ssdd.academia.services.CourseService;
 import es.ssdd.academia.services.ForumService;
@@ -104,8 +104,8 @@ public class CourseController {
     public String getOne(Model model, @PathVariable long id) {
         Course course = courseService.getOne(id);
         model.addAttribute("course", course);
-        Collection<Comment> commentList = forumService.getComments(course.getForum());
-        model.addAttribute("comments", commentList);
+        Collection<Review> reviewList = forumService.getComments(course.getForum());
+        model.addAttribute("comments", reviewList);
         return "course";
     }
 

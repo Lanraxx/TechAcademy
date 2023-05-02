@@ -23,7 +23,7 @@ public class Forum {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "forum")
     @JsonView(Comments.class)
-    List<Comment> commentList = new ArrayList<>();
+    List<Review> reviewList = new ArrayList<>();
 
     //@OneToOne(cascade = CascadeType.ALL)
     /*private long fk_course;

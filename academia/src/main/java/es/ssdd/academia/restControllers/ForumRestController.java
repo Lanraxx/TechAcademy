@@ -1,10 +1,8 @@
 package es.ssdd.academia.restControllers;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import es.ssdd.academia.entities.Comment;
-import es.ssdd.academia.entities.Course;
+import es.ssdd.academia.entities.Review;
 import es.ssdd.academia.entities.Forum;
-import es.ssdd.academia.entities.User;
 import es.ssdd.academia.services.ForumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/forum")
 public class ForumRestController {
-    interface DetailsForum extends Forum.BasicForum, Forum.Comments, Comment.BasicComment {}
+    interface DetailsForum extends Forum.BasicForum, Forum.Comments, Review.BasicComment {}
     @Autowired
     ForumService forumService;
 
