@@ -30,7 +30,7 @@ public class User {
     private String email;
     @JsonView(BasicUser.class)
     private String password;
-    @ManyToMany(cascade = {CascadeType.MERGE})
+    @ManyToMany
     @JsonView(Courses.class)
     private List<Course> enrolledCourses = new ArrayList<>();
 

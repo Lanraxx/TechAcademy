@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.PostConstruct;
 import java.util.Collection;
 
+
 @Controller
 @RequestMapping("/courses")
 public class CourseController {
@@ -27,13 +28,13 @@ public class CourseController {
     @PostConstruct
     public void courseController() {
         //Create courses
-        Course course1 = new Course("Introducción a Java", "Gratis", "5 horas",
-                "Java es un lenguaje de programación orientado a objetos y, al mismo tiempo, una plataforma informática "
-                        + "para el diseño y desarrollo de aplicaciones para distintos dispositivos. "
-                        + "Como curiosidad, te podemos contar que se trata de un sistema que se creó en 1995 y que tenía como "
-                        + "objetivo ser un lenguaje de programación de estructura sencilla y que pudiese ser ejecutado en todos "
-                        + "los sistemas operativos posibles. Java sigue siendo, tras más de 20 años en el mercado, "
-                        + "uno de los lenguajes de programación más usados del mundo.",
+        Course course1 = new Course("Introduccion a Java", "Gratis", "5 horas",
+                "Java es un lenguaje de programacion orientado a objetos y, al mismo tiempo, una plataforma informatica "
+                        + "para el desarrollo de aplicaciones para distintos dispositivos. "
+                        + "Como curiosidad, te podemos contar que se trata de un sistema que se creo en 1995 y que tenia como "
+                        + "objetivo ser un lenguaje de programacion de estructura sencilla y que pudiese ser ejecutado en todos "
+                        + "los sistemas operativos posibles. Java sigue siendo, tras tanto tiempo en el mercado, "
+                        + "uno de los lenguajes de programacion mas usados del mundo.",
                 "https://www.oracle.com/oce/press/assets/CONT2F6AE229113D42EC9C59FAED5BAA0380/native/og-social-java-logo.gif");
 
         Course course2 = new Course("Excel II", "10 euros", "1 hora y 30 minutos",

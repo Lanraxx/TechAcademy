@@ -13,12 +13,12 @@ import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Controller
 @RequestMapping("/users")
 public class UserController {
     @Autowired
     UserService userService;
+
     @Autowired
     CourseService courseService;
 
@@ -126,10 +126,12 @@ public class UserController {
                              @RequestParam String password, @RequestParam(name="selectedObjects", required = false) List<Long> selectedObjects) {
 
         List<Course> selectCourses = new ArrayList<>();
-        for(Long idCheckbox : selectedObjects) {
-            selectCourses.add(courseService.getOne(idCheckbox));
-            if (!(courseService.getOne(idCheckbox).getUserList().contains(userService.getOne(id)))) {
-                courseService.getOne(idCheckbox).getUserList().add(userService.getOne(id));
+        if(selectedObjects != null) {
+            for (Long idCheckbox : selectedObjects) {
+                selectCourses.add(courseService.getOne(idCheckbox));
+                if (!(courseService.getOne(idCheckbox).getUserList().contains(userService.getOne(id)))) {
+                    courseService.getOne(idCheckbox).getUserList().add(userService.getOne(id));
+                }
             }
         }
 

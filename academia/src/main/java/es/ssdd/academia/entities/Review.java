@@ -12,23 +12,25 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Review {
-    public interface BasicComment{}
+
+    public interface BasicReview{}
 
     public interface Forums{}
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonView(BasicComment.class)
+    @JsonView(BasicReview.class)
     private long id;
-    @JsonView(BasicComment.class)
-    private String comment;
-    @JsonView(BasicComment.class)
+    @JsonView(BasicReview.class)
+    private String review;
+    @JsonView(BasicReview.class)
     private String author;
     @ManyToOne
     @JsonView(Forums.class)
     private Forum forum;
 
-    public Review(String comment, String author) {
+    public Review(String review, String author) {
         this.author = author;
-        this.comment = comment;
+        this.review = review;
     }
 }

@@ -15,14 +15,14 @@ import java.util.List;
 @NoArgsConstructor
 public class Forum {
     public interface BasicForum{}
-    public interface Comments{}
+    public interface Reviews{}
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonView(BasicForum.class)
     private long id;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "forum")
-    @JsonView(Comments.class)
+    @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "forum")
+    @JsonView(Reviews.class)
     List<Review> reviewList = new ArrayList<>();
 
     //@OneToOne(cascade = CascadeType.ALL)

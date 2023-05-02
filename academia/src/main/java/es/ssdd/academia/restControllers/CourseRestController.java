@@ -40,15 +40,21 @@ public class CourseRestController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/")
     public Course addCourse(@RequestBody Course course){
-        courseService.createCourse(course);
+        Course c = new Course(course);
+        courseService.createCourse(c);
         return course;
     }
 
     @JsonView(Course.BasicCourse.class)
     @DeleteMapping("/{id}/delete/")
     public ResponseEntity<Course> deleteCourse(@PathVariable long id){
-        Course tem = courseService.deleteCourse(id);
-        return new ResponseEntity<>(tem, HttpStatus.OK);
+        Course tem = courseService.getOne(id);
+        if (tem != null) {
+            courseService.deleteCourse(id);
+            return new ResponseEntity<>(tem, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @JsonView(Course.BasicCourse.class)

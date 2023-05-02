@@ -14,13 +14,14 @@ public class ReviewRestController {
     @Autowired
     ReviewService reviewService;
 
-    @JsonView(Review.BasicComment.class)
+    @JsonView(Review.BasicReview.class)
     @GetMapping("/")
     public ResponseEntity getAllComments() {
         return new ResponseEntity<>(reviewService.getAll(), HttpStatus.OK);
     }
 
-    @JsonView(Review.BasicComment.class)
+
+    @JsonView(Review.BasicReview.class)
     @GetMapping("/{id}/")
     public ResponseEntity<Review> getComment(@PathVariable long id) {
         Review tempReview = reviewService.getOne(id);
@@ -51,7 +52,12 @@ public class ReviewRestController {
 
     @DeleteMapping("/{id}/delete/")
     public ResponseEntity<Review> deleteComment(@PathVariable long id) {
-        Review tem = reviewService.deleteComment(id);
-        return new ResponseEntity<>(tem, HttpStatus.OK);
+        Review tem = reviewService.getOne(id);
+        if (tem != null) {
+            reviewService.deleteComment(id);
+            return new ResponseEntity<>(tem, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 }

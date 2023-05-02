@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/forum")
 public class ForumRestController {
-    interface DetailsForum extends Forum.BasicForum, Forum.Comments, Review.BasicComment {}
+
+    interface DetailsForum extends Forum.BasicForum, Forum.Reviews, Review.BasicReview {}
     @Autowired
     ForumService forumService;
 
@@ -33,11 +34,22 @@ public class ForumRestController {
         }
     }
 
+    @JsonView(DetailsForum.class)
+    @GetMapping("/comments/{id}/")
+    public ResponseEntity getCommentsOfAForum(@PathVariable long id) {
+        return new ResponseEntity<>(forumService.getComments(forumService.getOne(id)), HttpStatus.OK);
+    }
+
     @JsonView(Forum.BasicForum.class)
     @DeleteMapping("/{id}/delete/")
     public ResponseEntity<Forum> deleteForum(@PathVariable long id) {
-        Forum tem = forumService.deleteAllComments(id);
-        return new ResponseEntity<>(tem, HttpStatus.OK);
+        Forum tem = forumService.getOne(id);
+        if (tem != null) {
+            forumService.deleteAllComments(id);
+            return new ResponseEntity<>(tem, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
 }

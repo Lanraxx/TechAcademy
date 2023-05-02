@@ -21,7 +21,6 @@ public class Course {
     @JsonView(BasicCourse.class)
     private long id;
     @OneToOne(cascade=CascadeType.ALL)
-    @JsonView(BasicCourse.class)
     private Forum forum;
     @JsonView(BasicCourse.class)
     private String title;
@@ -45,6 +44,14 @@ public class Course {
         this.duration = duration;
         this.description = description;
         this.urlImage = urlImage;
+    }
+
+    public Course(Course course) {
+        this.title = course.title;
+        this.price = course.price;
+        this.duration = course.duration;
+        this.description = course.description;
+        this.urlImage = course.urlImage;
     }
 
 }

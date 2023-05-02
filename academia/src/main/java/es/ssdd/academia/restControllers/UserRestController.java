@@ -1,6 +1,7 @@
 package es.ssdd.academia.restControllers;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import es.ssdd.academia.entities.Course;
 import es.ssdd.academia.entities.User;
 import es.ssdd.academia.services.CourseService;
 import es.ssdd.academia.services.UserService;
@@ -13,11 +14,14 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/users")
 public class UserRestController {
 
+    interface DetailsUsers extends User.BasicUser, User.Courses, Course.BasicCourse { }
+
     @Autowired
     UserService userService;
 
     @Autowired
     CourseService courseService;
+
 
     @JsonView(User.BasicUser.class)
     @GetMapping("/")
@@ -25,7 +29,7 @@ public class UserRestController {
         return new ResponseEntity<>(userService.getAll(), HttpStatus.OK);
     }
 
-    @JsonView(User.BasicUser.class)
+    @JsonView(DetailsUsers.class)
     @GetMapping("/{id}/")
     public ResponseEntity getUser(@PathVariable long id) {
         User temUser = userService.getOne(id);
@@ -39,9 +43,16 @@ public class UserRestController {
     @JsonView(User.BasicUser.class)
     @DeleteMapping("/{id}/delete/")
     public ResponseEntity<User> deleteUser(@PathVariable long id){
-        User tem = userService.deleteUser(id);
-        courseService.deleteUser(id);
-        return new ResponseEntity<>(tem, HttpStatus.OK);
+        User tem = userService.getOne(id);
+        if (tem != null) {
+            userService.deleteUser(id);
+            courseService.deleteUser(id);
+            return new ResponseEntity<>(tem, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+
     }
 
     @PostMapping("/addUser/")
@@ -50,6 +61,7 @@ public class UserRestController {
         return new ResponseEntity<>(tem, HttpStatus.OK);
     }
 
+    @JsonView(User.BasicUser.class)
     @PutMapping("/{id}/editUser/")
     public ResponseEntity<User> updateUser(@RequestBody User user, @PathVariable long id){
         User tempUser = userService.getOne(id);

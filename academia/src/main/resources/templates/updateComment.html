@@ -54,11 +54,11 @@
               <div class="h1 fw-light">Editar comentario</div>
             </div>
 
-            <form action="/courses/{{course.id}}/editComment/{{review.id}}/" method="post">
+            <form action="/courses/{{course.id}}/editComment/{{comment.id}}/" method="post">
               <p>Autor: </p>
-              <input type='text' name='author' value="{{review.author}}"/>
+              <input type='text' name='author' value="{{comment.author}}"/>
               <p>Comentario:</p>
-              <textarea name='newReview' rows=10 cols=40>{{review.review}}</textarea>
+              <textarea name='newComment' rows=10 cols=40>{{comment.review}}</textarea>
               <input type='submit' value='Publicar'/>
             </form>
 

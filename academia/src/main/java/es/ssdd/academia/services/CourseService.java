@@ -7,8 +7,6 @@ import es.ssdd.academia.repositories.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
 import java.util.*;
 
 @Service
@@ -17,38 +15,23 @@ public class CourseService {
     @Autowired
     UserService userService;
     @Autowired
-    EntityManager entityManager;
-
-    /*private Map<Long, Course> mapCourses = new ConcurrentHashMap<>();
-    private AtomicLong id = new AtomicLong();*/
+    ForumService forumService;
 
     @Autowired
     CourseRepository courseRepository;
 
     public Collection<Course> getAll() {
-        //return mapCourses.values();
         return courseRepository.findAll();
     }
 
     public Course createCourse(Course course){
-        //long tem = id.incrementAndGet();
-        //course.setId(tem);
-        //mapCourses.put(tem, course);
         Forum forum = new Forum();
-        //forumService.createForum(forum);
         course.setForum(forum);
         courseRepository.save(course);
         return course;
     }
 
-    /*public Course getOne(long id) {
-        return mapCourses.get(id);
-    }*/
-
     public Course getOne(long id){
-        /*UNA OPCION --> valor retorno seria Optional<Course>
-        Optional<Course> findCourse = courseRepository.findById(id);
-        return findCourse;*/
         Optional<Course> findCourse = courseRepository.findById(id);
         if(findCourse.isPresent()) {
             Course course = findCourse.get();
@@ -57,13 +40,9 @@ public class CourseService {
         return null;
     }
 
-    /*public Course getByName(String name) {
-        return courseRepository.findByName(name);
-    }*/
-
     public Course modifyCourse (long id, Course newCourse) {
         Optional<Course> findCourse = courseRepository.findById(id);
-        if (findCourse.isPresent()) {
+        if(findCourse.isPresent()) {
             newCourse.setForum(findCourse.get().getForum());
             newCourse.setId(id);
             courseRepository.save(newCourse);
@@ -72,31 +51,11 @@ public class CourseService {
         return null;
     }
 
-    /*public Course deleteCourse(long id) {
-        for (Map.Entry<Long, Course> entry : mapCourses.entrySet()) {
-            Course c = entry.getValue();
-            if (id == c.getId()){
-                forumService.deleteForum(mapCourses.get(id).getFk_forum());
-                mapCourses.remove(id);
-                Collection<User> users = userService.getAll();
-                Iterator<User> iterator = users.iterator();
-                while (iterator.hasNext()) {
-                    User u = iterator.next();
-                    if(u.getEnrolledCourses().contains(c)) {
-                        u.getEnrolledCourses().remove(c);
-                    }
-                }
-                return c;
-            }
-        }
-        return null;
-    }*/
-
     public Course deleteCourse(long id) {
         Optional<Course> findCourse = courseRepository.findById(id);
         if (findCourse.isPresent()) {
             Course c = findCourse.get();
-            //forumService.deleteForum(c.getFk_forum());
+
             Collection<User> users = userService.getAll();
             Iterator<User> iterator = users.iterator();
             while ((iterator.hasNext())){
@@ -111,20 +70,6 @@ public class CourseService {
         return null;
     }
 
-    /*public void deleteUser(long id) {
-        for (Map.Entry<Long, Course> entry : mapCourses.entrySet()) {
-            Course c = entry.getValue();
-            List<User> users = c.getUserList();
-            Iterator<User> iterator = users.iterator();
-            while (iterator.hasNext()) {
-                User u = iterator.next();
-                if (u.getId() == id) {
-                    iterator.remove();
-                }
-            }
-        }
-    }*/
-
     public void deleteUser(long id) {
         List<Course> listCourses = courseRepository.findAll();
         for (Course c: listCourses) {
@@ -138,15 +83,6 @@ public class CourseService {
             }
         }
     }
-
-    /*
-    public List<Course> freeCourses () {
-        TypedQuery<Course> q1 = entityManager.createQuery("SELECT c FROM Course c WHERE price='gratis'", Course.class);
-        return q1.getResultList();
-    }
-
-     */
-
 
     public List<Course> filterCourses(String price) {
         return courseRepository.findByPrice(price);
